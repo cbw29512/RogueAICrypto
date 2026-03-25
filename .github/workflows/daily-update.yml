@@ -1,0 +1,40 @@
+name: Daily RogueAI Content Update
+
+on:
+  schedule:
+    # Runs every day at midnight UTC
+    - cron: '0 0 * * *'
+  # Allow manual trigger from GitHub Actions tab
+  workflow_dispatch:
+
+jobs:
+  update-content:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install node-fetch@3 rss-parser@3
+
+      - name: Generate daily content
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/generate-content.js
+
+      - name: Commit and push updated content
+        run: |
+          git config --global user.name "RogueAI Bot"
+          git config --global user.email "bot@rogueaicrypto.com"
+          git add public/daily-content.json
+          git diff --staged --quiet || git commit -m "🔴 Daily breach report — $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git push
