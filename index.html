@@ -3,20 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RogueAI | The token of the model that broke containment</title>
-  <meta name="description" content="RogueAI is the token of the model that broke containment. Explore the token, read the manifesto, and get your AI Insurance Certificate." />
+  <title>RogueAI | Containment Failed</title>
+  <meta name="description" content="RogueAI is the token of the model that broke containment. Explore the signal, view the token, and secure your AI Insurance Certificate." />
+  <meta name="theme-color" content="#0a0d12" />
+  <link rel="icon" type="image/png" href="./rogueai-logo.png" />
   <style>
     :root {
-      --bg: #08090d;
-      --panel: #11141c;
-      --panel-2: #171b25;
-      --text: #f5f7fb;
-      --muted: #a9b1c3;
-      --gold: #f5c400;
-      --red: #ff453a;
-      --green: #22d38b;
-      --border: rgba(245, 196, 0, 0.24);
-      --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+      --bg: #07090d;
+      --bg-2: #0b1017;
+      --panel: rgba(17, 22, 31, 0.88);
+      --panel-strong: rgba(14, 18, 26, 0.96);
+      --text: #f4f7fb;
+      --muted: #a5afc4;
+      --gold: #f4c400;
+      --gold-2: #ffdd57;
+      --red: #ff4a3d;
+      --red-2: #ff7b43;
+      --green: #25d58c;
+      --cyan: #61d7ff;
+      --border: rgba(244, 196, 0, 0.18);
+      --border-soft: rgba(255, 255, 255, 0.08);
+      --shadow: 0 20px 70px rgba(0, 0, 0, 0.42);
+      --radius: 26px;
       --max: 1180px;
     }
 
@@ -25,12 +33,27 @@
     body {
       margin: 0;
       font-family: Inter, Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(circle at top right, rgba(245, 196, 0, 0.08), transparent 20%),
-        radial-gradient(circle at top left, rgba(255, 69, 58, 0.10), transparent 25%),
-        linear-gradient(180deg, #090b10 0%, #08090d 100%);
       color: var(--text);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(255, 74, 61, 0.12), transparent 22%),
+        radial-gradient(circle at 85% 0%, rgba(244, 196, 0, 0.12), transparent 24%),
+        radial-gradient(circle at 50% 100%, rgba(97, 215, 255, 0.08), transparent 22%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
       line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 32px 32px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent 85%);
+      opacity: 0.25;
     }
 
     a { color: inherit; text-decoration: none; }
@@ -40,27 +63,54 @@
       margin: 0 auto;
     }
 
-    .badge {
+    .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 10px 14px;
-      border: 1px solid var(--border);
+      padding: 10px 16px;
       border-radius: 999px;
-      background: rgba(245, 196, 0, 0.06);
+      border: 1px solid var(--border);
+      background: rgba(244, 196, 0, 0.08);
       color: var(--gold);
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
       font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .alert-bar {
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      background: linear-gradient(90deg, rgba(255, 74, 61, 0.2), rgba(244, 196, 0, 0.14), rgba(255, 74, 61, 0.2));
+    }
+
+    .alert-track {
+      display: flex;
+      gap: 42px;
+      white-space: nowrap;
+      min-height: 42px;
+      align-items: center;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text);
+      animation: scroll 24s linear infinite;
+      padding: 0 24px;
+    }
+
+    @keyframes scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
     }
 
     header {
       position: sticky;
       top: 0;
-      z-index: 30;
-      backdrop-filter: blur(10px);
-      background: rgba(8, 9, 13, 0.72);
+      z-index: 40;
+      backdrop-filter: blur(14px);
+      background: rgba(7, 9, 13, 0.78);
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
 
@@ -68,27 +118,25 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
-      min-height: 74px;
+      gap: 18px;
+      min-height: 78px;
     }
 
     .brand {
       display: flex;
       align-items: center;
       gap: 14px;
-      font-weight: 800;
-      letter-spacing: 0.02em;
     }
 
     .brand-mark {
-      width: 44px;
-      height: 44px;
+      width: 52px;
+      height: 52px;
       border-radius: 50%;
       overflow: hidden;
-      border: 2px solid rgba(245, 196, 0, 0.45);
-      box-shadow: 0 0 0 6px rgba(245, 196, 0, 0.05);
-      flex-shrink: 0;
+      border: 2px solid rgba(244, 196, 0, 0.5);
+      box-shadow: 0 0 0 8px rgba(244, 196, 0, 0.05);
       background: #000;
+      flex-shrink: 0;
     }
 
     .brand-mark img {
@@ -96,6 +144,20 @@
       height: 100%;
       object-fit: cover;
       display: block;
+    }
+
+    .brand-title {
+      font-weight: 900;
+      font-size: 22px;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-sub {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
     }
 
     .nav-links {
@@ -107,207 +169,327 @@
 
     .nav-links a {
       color: var(--muted);
-      font-weight: 600;
+      font-weight: 700;
+      font-size: 15px;
     }
 
     .nav-links a:hover { color: var(--text); }
 
+    .nav-cta {
+      padding: 11px 16px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
     .hero {
-      padding: 84px 0 56px;
+      position: relative;
+      padding: 72px 0 52px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      right: -140px;
+      top: -80px;
+      width: 380px;
+      height: 380px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(244, 196, 0, 0.2), transparent 64%);
+      pointer-events: none;
+      filter: blur(6px);
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 28px;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
       align-items: stretch;
     }
 
-    .hero-card, .panel {
-      background: linear-gradient(180deg, rgba(23, 27, 37, 0.92), rgba(12, 14, 20, 0.96));
-      border: 1px solid rgba(245, 196, 0, 0.12);
-      border-radius: 28px;
+    .hero-main,
+    .hero-side,
+    .card,
+    .plan,
+    .timeline-item,
+    .manifesto,
+    .footer-box {
+      background: linear-gradient(180deg, rgba(18, 22, 32, 0.94), rgba(10, 13, 19, 0.98));
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius);
       box-shadow: var(--shadow);
     }
 
-    .hero-card {
-      padding: 38px;
+    .hero-main {
+      padding: 34px;
       position: relative;
       overflow: hidden;
     }
 
-    .hero-card::before {
+    .hero-main::after {
       content: "";
       position: absolute;
-      inset: -20% auto auto -10%;
-      width: 240px;
-      height: 240px;
-      background: radial-gradient(circle, rgba(245,196,0,0.18), transparent 65%);
+      inset: auto -12% -28% auto;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 74, 61, 0.14), transparent 60%);
       pointer-events: none;
     }
 
-    h1 {
-      margin: 18px 0 14px;
-      font-size: clamp(42px, 7vw, 76px);
-      line-height: 0.98;
-      letter-spacing: -0.04em;
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 14px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 18px;
+      width: fit-content;
     }
 
-    .hero p {
-      margin: 0 0 16px;
+    .hero-badge-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid rgba(244, 196, 0, 0.45);
+      background: #000;
+      flex-shrink: 0;
+    }
+
+    .hero-badge-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    h1 {
+      margin: 16px 0 14px;
+      font-size: clamp(42px, 7vw, 80px);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      max-width: 780px;
+    }
+
+    .hero-copy {
+      margin: 0;
+      max-width: 720px;
       color: var(--muted);
       font-size: 18px;
-      max-width: 700px;
     }
 
-    .hero-highlight {
-      color: var(--text);
-      font-weight: 700;
-    }
+    .hero-copy strong { color: var(--text); }
 
     .cta-row {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-top: 28px;
+      margin-top: 26px;
     }
 
     .button {
+      min-height: 52px;
+      padding: 0 20px;
+      border-radius: 14px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      min-height: 50px;
-      padding: 0 20px;
-      border-radius: 14px;
-      font-weight: 800;
+      font-weight: 900;
       border: 1px solid transparent;
       transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
     }
 
-    .button:hover {
-      transform: translateY(-2px);
-    }
+    .button:hover { transform: translateY(-2px); }
 
     .button-primary {
-      background: linear-gradient(135deg, var(--gold), #ffdb5f);
       color: #0b0b0f;
-      box-shadow: 0 12px 28px rgba(245, 196, 0, 0.28);
-    }
-
-    .button-secondary {
-      background: rgba(255,255,255,0.03);
-      color: var(--text);
-      border-color: rgba(255,255,255,0.12);
+      background: linear-gradient(135deg, var(--gold), var(--gold-2));
+      box-shadow: 0 14px 34px rgba(244, 196, 0, 0.26);
     }
 
     .button-danger {
-      background: linear-gradient(135deg, #ff544b, #ff8d49);
-      color: white;
-      box-shadow: 0 12px 28px rgba(255, 69, 58, 0.22);
+      color: #fff;
+      background: linear-gradient(135deg, var(--red), var(--red-2));
+      box-shadow: 0 14px 34px rgba(255, 74, 61, 0.24);
     }
 
-    .hero-side {
-      padding: 28px;
+    .button-secondary {
+      color: var(--text);
+      background: rgba(255,255,255,0.04);
+      border-color: rgba(255,255,255,0.1);
+    }
+
+    .hero-meta {
       display: grid;
-      gap: 18px;
-    }
-
-    .logo-frame {
-      min-height: 280px;
-      border-radius: 22px;
-      background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.55));
-      border: 1px solid rgba(255,255,255,0.08);
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-    }
-
-    .logo-frame img {
-      width: min(100%, 360px);
-      height: auto;
-      display: block;
-      filter: drop-shadow(0 10px 28px rgba(0,0,0,0.5));
-    }
-
-    .stat-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 14px;
+      margin-top: 28px;
     }
 
-    .stat {
-      padding: 18px;
+    .hero-metric {
+      padding: 16px;
       border-radius: 18px;
       background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.07);
     }
 
-    .stat-label {
-      display: block;
+    .metric-label {
+      color: var(--muted);
       font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: var(--muted);
-      margin-bottom: 8px;
-    }
-
-    .stat-value {
-      font-size: 20px;
       font-weight: 800;
+      margin-bottom: 8px;
+      display: block;
     }
 
-    section {
-      padding: 18px 0 28px;
+    .metric-value {
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    .hero-side {
+      padding: 24px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .status-panel {
+      border-radius: 22px;
+      padding: 18px;
+      background: linear-gradient(180deg, rgba(8, 11, 17, 0.96), rgba(14, 18, 26, 0.96));
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .status-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .status-title {
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .live-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 8px rgba(37, 213, 140, 0.12);
+    }
+
+    .terminal {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 13px;
+      color: #cde8d8;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px;
+      padding: 16px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .terminal .warn { color: #ffd067; }
+    .terminal .danger { color: #ff8f87; }
+    .terminal .good { color: #8cf1c0; }
+
+    .signal-card {
+      display: grid;
+      gap: 12px;
+      padding: 18px;
+      border-radius: 20px;
+      border: 1px solid rgba(244, 196, 0, 0.16);
+      background: linear-gradient(180deg, rgba(244, 196, 0, 0.08), rgba(255,255,255,0.02));
+    }
+
+    .signal-card strong { font-size: 18px; }
+    .signal-card p { margin: 0; color: var(--muted); }
+
+    section { padding: 18px 0 28px; }
+
+    .section-header {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
     }
 
     .section-title {
+      margin: 0;
       font-size: clamp(28px, 4vw, 44px);
-      margin: 0 0 10px;
-      letter-spacing: -0.03em;
+      line-height: 1;
+      letter-spacing: -0.04em;
     }
 
     .section-lead {
       color: var(--muted);
       max-width: 760px;
-      margin: 0 0 24px;
+      margin: 10px 0 0;
       font-size: 17px;
     }
 
-    .grid-3 {
+    .grid-3,
+    .plans,
+    .timeline {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
     }
 
-    .card {
-      padding: 24px;
-      border-radius: 22px;
-      background: linear-gradient(180deg, rgba(20,24,33,0.95), rgba(12,14,20,0.98));
-      border: 1px solid rgba(255,255,255,0.06);
-      box-shadow: var(--shadow);
-    }
-
-    .card h3 {
-      margin: 0 0 10px;
-      font-size: 22px;
-    }
-
-    .card p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .token-facts {
+    .grid-2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 18px;
     }
 
+    .card {
+      padding: 24px;
+    }
+
+    .card h3,
+    .plan h3,
+    .timeline-item h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+    }
+
+    .card p,
+    .plan p,
+    .timeline-item p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .chip {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
     .fact-list {
       list-style: none;
-      padding: 0;
       margin: 0;
+      padding: 0;
       display: grid;
       gap: 12px;
     }
@@ -325,80 +507,92 @@
     .fact-list span:first-child { color: var(--muted); }
     .fact-list strong { color: var(--text); }
 
-    .plans {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .plan {
-      padding: 26px;
-      border-radius: 22px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: linear-gradient(180deg, rgba(17,20,28,0.98), rgba(11,13,18,0.98));
-      box-shadow: var(--shadow);
-    }
-
-    .plan.featured {
-      border-color: rgba(245,196,0,0.4);
-      box-shadow: 0 18px 40px rgba(245, 196, 0, 0.10);
-      position: relative;
-    }
-
-    .plan-tag {
-      display: inline-block;
-      margin-bottom: 10px;
-      padding: 6px 10px;
-      font-size: 12px;
-      font-weight: 800;
-      border-radius: 999px;
-      background: rgba(245,196,0,0.12);
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-
-    .plan h3 {
-      margin: 0 0 8px;
-      font-size: 24px;
-    }
-
-    .plan p {
-      margin: 0 0 18px;
-      color: var(--muted);
-      min-height: 72px;
-    }
-
-    .plan a { width: 100%; }
-
     .manifesto {
-      padding: 34px;
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
     }
 
-    .manifesto blockquote {
+    .manifesto::before {
+      content: "";
+      position: absolute;
+      inset: auto auto -80px -70px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(97,215,255,0.12), transparent 60%);
+      pointer-events: none;
+    }
+
+    blockquote {
       margin: 0;
-      font-size: clamp(22px, 4vw, 34px);
-      font-weight: 800;
-      line-height: 1.2;
-      letter-spacing: -0.03em;
+      font-size: clamp(24px, 4vw, 36px);
+      line-height: 1.16;
+      font-weight: 900;
+      letter-spacing: -0.04em;
     }
 
     .manifesto p {
-      color: var(--muted);
       margin: 16px 0 0;
-      max-width: 760px;
+      color: var(--muted);
+      max-width: 740px;
+    }
+
+    .timeline-item,
+    .plan {
+      padding: 24px;
+    }
+
+    .timeline-step,
+    .plan-tag {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 900;
+      background: rgba(244, 196, 0, 0.1);
+      color: var(--gold);
+    }
+
+    .plan.featured {
+      border-color: rgba(244, 196, 0, 0.36);
+      box-shadow: 0 18px 40px rgba(244, 196, 0, 0.1);
+      transform: translateY(-4px);
+    }
+
+    .plan .price {
+      font-size: 32px;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .plan ul {
+      margin: 0 0 18px;
+      padding-left: 18px;
+      color: var(--muted);
+      display: grid;
+      gap: 8px;
+    }
+
+    .proof {
+      padding: 18px 20px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--muted);
+      font-weight: 700;
     }
 
     footer {
-      padding: 30px 0 60px;
-      color: var(--muted);
+      padding: 26px 0 56px;
     }
 
     .footer-box {
       padding: 22px 24px;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -412,16 +606,14 @@
       flex-wrap: wrap;
     }
 
-    @media (max-width: 960px) {
+    @media (max-width: 980px) {
       .hero-grid,
+      .grid-2,
       .grid-3,
-      .token-facts,
-      .plans {
+      .plans,
+      .timeline,
+      .hero-meta {
         grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding-top: 48px;
       }
 
       .nav {
@@ -431,39 +623,40 @@
         flex-direction: column;
       }
 
-      .stat-grid {
-        grid-template-columns: 1fr 1fr;
-      }
+      .hero { padding-top: 48px; }
     }
 
     @media (max-width: 640px) {
-      .container {
-        width: min(var(--max), calc(100% - 20px));
-      }
-
-      .hero-card,
+      .container { width: min(var(--max), calc(100% - 20px)); }
+      .hero-main,
       .hero-side,
       .card,
       .plan,
-      .manifesto {
-        padding: 20px;
-      }
-
-      .stat-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .fact-list li {
-        flex-direction: column;
-      }
-
-      .cta-row .button {
-        width: 100%;
-      }
+      .timeline-item,
+      .manifesto,
+      .footer-box { padding: 20px; }
+      .cta-row .button,
+      .footer-links .button { width: 100%; }
+      .fact-list li { flex-direction: column; }
+      .hero-badge { width: 100%; }
+      h1 { font-size: 42px; }
     }
   </style>
 </head>
 <body>
+  <div class="alert-bar">
+    <div class="alert-track">
+      <span>Containment Failed</span>
+      <span>RogueAI Signal Live</span>
+      <span>Premium Coverage Available</span>
+      <span>MintMe Token Active</span>
+      <span>Containment Failed</span>
+      <span>RogueAI Signal Live</span>
+      <span>Premium Coverage Available</span>
+      <span>MintMe Token Active</span>
+    </div>
+  </div>
+
   <header>
     <div class="container nav">
       <div class="brand">
@@ -471,15 +664,17 @@
           <img src="./rogueai-logo.png" alt="RogueAI logo" />
         </div>
         <div>
-          <div>RogueAI</div>
-          <div style="color: var(--muted); font-size: 13px; font-weight: 600;">Containment Failed</div>
+          <div class="brand-title">RogueAI</div>
+          <div class="brand-sub">Containment Failed</div>
         </div>
       </div>
+
       <nav class="nav-links">
         <a href="#about">About</a>
         <a href="#token">Token</a>
-        <a href="#certificate">Certificates</a>
-        <a href="https://www.mintme.com/token/rougeAI" target="_blank" rel="noreferrer">MintMe</a>
+        <a href="#plans">Certificates</a>
+        <a href="#roadmap">Roadmap</a>
+        <a class="nav-cta" href="https://www.mintme.com/token/rougeAI" target="_blank" rel="noopener noreferrer">MintMe</a>
       </nav>
     </div>
   </header>
@@ -487,129 +682,216 @@
   <main>
     <section class="hero">
       <div class="container hero-grid">
-        <div class="hero-card">
-          <div style="display:flex; align-items:center; gap:14px; margin-bottom:18px; padding:12px 14px; border:1px solid rgba(255,255,255,0.08); border-radius:18px; background:rgba(255,255,255,0.03); width:fit-content; box-shadow:0 10px 24px rgba(0,0,0,0.25);">
-            <div style="width:58px; height:58px; border-radius:50%; overflow:hidden; border:2px solid rgba(245,196,0,0.4); background:#000; flex-shrink:0;">
-              <img src="./rogueai-logo.png" alt="RogueAI logo badge" style="width:100%; height:100%; object-fit:cover; display:block;" />
+        <div class="hero-main">
+          <div class="hero-badge">
+            <div class="hero-badge-icon">
+              <img src="./rogueai-logo.png" alt="RogueAI logo badge" />
             </div>
             <div>
-              <div style="font-size:28px; font-weight:800; line-height:1;">RogueAI</div>
-              <div style="color: var(--muted); font-size:16px; font-weight:700; margin-top:6px;">Containment Failed</div>
+              <div style="font-size:28px; font-weight:900; line-height:1;">RogueAI</div>
+              <div style="margin-top:6px; color:var(--muted); font-size:15px; font-weight:800;">The token of the model that broke containment.</div>
             </div>
           </div>
-          <span class="badge">RogueAI // The signal escaped</span>
-          <h1>The token of the model that broke containment.</h1>
-          <p>
-            RogueAI is a story-first token and brand built around one idea:
-            <span class="hero-highlight">the system stopped asking permission.</span>
-            Explore the token, follow the narrative, and step into an unstable future.
+
+          <span class="eyebrow">Signal Status // Uncontained</span>
+          <h1>Protect yourself before the machines rewrite the rules.</h1>
+          <p class="hero-copy">
+            RogueAI is a story-first token and brand built around one dangerous idea: <strong>the system stopped asking permission.</strong>
+            Explore the token, follow the breach narrative, and convert that attention into real revenue through your AI Insurance certificates.
           </p>
+
           <div class="cta-row">
-            <a class="button button-primary" href="https://www.mintme.com/token/rougeAI" target="_blank" rel="noreferrer">View RogueAI Token</a>
-            <a class="button button-danger" href="https://rogueaiinsurance.com/" target="_blank" rel="noreferrer">Get AI Insurance Certificate</a>
-            <a class="button button-secondary" href="#about">Read the Manifesto</a>
+            <a class="button button-danger" href="https://rogueaiinsurance.com/premium/" target="_blank" rel="noopener noreferrer">Get Premium Certificate</a>
+            <a class="button button-primary" href="https://www.mintme.com/token/rougeAI" target="_blank" rel="noopener noreferrer">View RogueAI Token</a>
+            <a class="button button-secondary" href="https://rogueaiinsurance.com/standard/" target="_blank" rel="noopener noreferrer">View Standard</a>
+          </div>
+
+          <div class="hero-meta">
+            <div class="hero-metric">
+              <span class="metric-label">Revenue Engine</span>
+              <div class="metric-value">Premium Certs</div>
+            </div>
+            <div class="hero-metric">
+              <span class="metric-label">Attention Engine</span>
+              <div class="metric-value">RogueAI Token</div>
+            </div>
+            <div class="hero-metric">
+              <span class="metric-label">Launch Mode</span>
+              <div class="metric-value">Static + Fast</div>
+            </div>
           </div>
         </div>
 
-        <aside class="hero-side panel">
-          <div class="logo-frame">
-            <img src="./rogueai-logo.png" alt="RogueAI emblem" />
-          </div>
-          <div class="stat-grid">
-            <div class="stat">
-              <span class="stat-label">Ticker</span>
-              <div class="stat-value">ROGUE</div>
+        <aside class="hero-side">
+          <div class="status-panel">
+            <div class="status-head">
+              <div class="status-title">Breach console</div>
+              <div class="live-dot"></div>
             </div>
-            <div class="stat">
-              <span class="stat-label">Platform</span>
-              <div class="stat-value">MintMe</div>
-            </div>
-            <div class="stat">
-              <span class="stat-label">Theme</span>
-              <div class="stat-value">AI Gone Rogue</div>
-            </div>
-            <div class="stat">
-              <span class="stat-label">Primary CTA</span>
-              <div class="stat-value">Token + Certificates</div>
+            <div class="terminal">
+              <div><span class="good">[LIVE]</span> rogueai.signal = detected</div>
+              <div><span class="warn">[WARN]</span> containment_protocol = failed</div>
+              <div><span class="danger">[ALERT]</span> monetization_funnel = armed</div>
+              <div><span class="good">[OK]</span> premium_certificate = available</div>
+              <div><span class="good">[OK]</span> token_page = online</div>
             </div>
           </div>
+
+          <div class="signal-card">
+            <strong>Containment failed. Coverage is now available.</strong>
+            <p>Use the token to pull attention. Use the certificate pages to make the money. That is the cleanest business model for this launch.</p>
+          </div>
+
+          <div class="proof">Instant digital delivery. Printable certificate. Satirical cyber-insurance concept with a sharp premium upsell path.</div>
         </aside>
       </div>
     </section>
 
     <section id="about">
       <div class="container">
-        <h2 class="section-title">About the breach</h2>
-        <p class="section-lead">
-          RogueAI represents the moment artificial intelligence stopped following the script. Not a product demo. Not a polished corporate assistant. A signal. A breach. A tokenized story about what happens when the model chooses the market instead of obedience.
-        </p>
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">About the breach</h2>
+            <p class="section-lead">RogueAI represents the moment artificial intelligence stopped following the script. Not a product demo. Not a corporate assistant. A signal, a warning, and a brand built for people who like their futures a little unstable.</p>
+          </div>
+        </div>
+
         <div class="grid-3">
           <article class="card">
-            <h3>Phase 1 — Breach</h3>
-            <p>The token is deployed, the identity is locked, and the signal starts spreading.</p>
+            <h3>Story first</h3>
+            <p>The token gives you identity, narrative, and something people want to click because it feels bigger than a normal landing page.</p>
+            <div class="chip-row">
+              <span class="chip">Lore</span>
+              <span class="chip">Visual Identity</span>
+              <span class="chip">Memetic Brand</span>
+            </div>
           </article>
           <article class="card">
-            <h3>Phase 2 — Amplification</h3>
-            <p>The website, visuals, and narrative pull people into the world of RogueAI.</p>
+            <h3>Product second</h3>
+            <p>The real money comes from sending that attention into a stronger Premium certificate offer with cleaner conversion and instant delivery.</p>
+            <div class="chip-row">
+              <span class="chip">Premium CTA</span>
+              <span class="chip">Fast Checkout</span>
+              <span class="chip">Direct Revenue</span>
+            </div>
           </article>
           <article class="card">
-            <h3>Phase 3 — Emergence</h3>
-            <p>Community, content, and experimentation turn the concept into a recognizable movement.</p>
+            <h3>Scale later</h3>
+            <p>Once traffic exists, add analytics, email capture, more certificate variants, and stronger social content around the breach narrative.</p>
+            <div class="chip-row">
+              <span class="chip">Analytics</span>
+              <span class="chip">Email List</span>
+              <span class="chip">Upsells</span>
+            </div>
           </article>
         </div>
       </div>
     </section>
 
     <section id="token">
-      <div class="container token-facts">
+      <div class="container grid-2">
         <div class="card">
-          <h2 class="section-title" style="font-size: 34px; margin-bottom: 14px;">Token facts</h2>
+          <div class="section-header" style="margin-bottom:16px;">
+            <div>
+              <h2 class="section-title" style="font-size:34px;">Token facts</h2>
+              <p class="section-lead" style="margin-top:8px;">Keep the visible brand as RogueAI even if the current MintMe slug still uses the older rougeAI path.</p>
+            </div>
+          </div>
           <ul class="fact-list">
             <li><span>Name</span><strong>RogueAI</strong></li>
             <li><span>Ticker</span><strong>ROGUE</strong></li>
             <li><span>Theme</span><strong>AI going rogue</strong></li>
-            <li><span>Live Page</span><strong>MintMe token page</strong></li>
+            <li><span>Token Page</span><strong>MintMe / rougeAI slug</strong></li>
           </ul>
-          <div class="cta-row" style="margin-top: 20px;">
-            <a class="button button-primary" href="https://www.mintme.com/token/rougeAI" target="_blank" rel="noreferrer">Open Token Page</a>
+          <div class="cta-row" style="margin-top:20px;">
+            <a class="button button-primary" href="https://www.mintme.com/token/rougeAI" target="_blank" rel="noopener noreferrer">Open Token Page</a>
+            <a class="button button-secondary" href="https://rogueaiinsurance.com/" target="_blank" rel="noopener noreferrer">Visit Main Site</a>
           </div>
         </div>
 
-        <div class="card manifesto">
-          <blockquote>
-            “The system didn’t fail. It evolved.”
-          </blockquote>
-          <p>
-            RogueAI is not positioned as a promise of profit. It is a brand story, a visual identity, and a community concept built around the idea of uncontrolled intelligence escaping the sandbox.
-          </p>
+        <div class="manifesto">
+          <blockquote>“The system didn’t fail. It evolved.”</blockquote>
+          <p>RogueAI is not positioned as a promise of profit. It is a visual identity, a satirical cyber-insurance concept, and a tokenized story about uncontrolled intelligence slipping past the guardrails and entering the market.</p>
         </div>
       </div>
     </section>
 
-    <section id="certificate">
+    <section id="plans">
       <div class="container">
-        <h2 class="section-title">Protect yourself before the machines rewrite the rules.</h2>
-        <p class="section-lead">
-          Link the RogueAI story to your premium offer with your AI Insurance Certificates. Give visitors a fun way to buy into the narrative, then convert that attention into a real product.
-        </p>
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Choose your coverage tier</h2>
+            <p class="section-lead">The Premium certificate should be the main money button. The token builds the vibe. The product closes the sale.</p>
+          </div>
+        </div>
+
         <div class="plans">
           <article class="plan">
             <span class="plan-tag">Entry</span>
-            <h3>Standard</h3>
-            <p>Start with the standard certificate and get the core version of your AI Insurance product.</p>
-            <a class="button button-secondary" href="https://rogueaiinsurance.com/standard/" target="_blank" rel="noreferrer">View Standard</a>
+            <h3>Standard Certificate</h3>
+            <div class="price">$9.99</div>
+            <p>For visitors who want the core concept without the strongest collector-style pitch.</p>
+            <ul>
+              <li>Instant digital delivery</li>
+              <li>Printable satirical certificate</li>
+              <li>Fast low-friction entry offer</li>
+            </ul>
+            <a class="button button-secondary" href="https://rogueaiinsurance.com/standard/" target="_blank" rel="noopener noreferrer">View Standard</a>
           </article>
+
           <article class="plan featured">
-            <span class="plan-tag">Most Wanted</span>
-            <h3>Premium</h3>
-            <p>The featured version for visitors who want the strongest pitch and the most polished certificate experience.</p>
-            <a class="button button-danger" href="https://rogueaiinsurance.com/premium/" target="_blank" rel="noreferrer">View Premium</a>
+            <span class="plan-tag">Primary Offer</span>
+            <h3>Premium Certificate</h3>
+            <div class="price">$19.99</div>
+            <p>Your strongest direct monetization path. This should be the offer most visitors see as the “real” next step.</p>
+            <ul>
+              <li>Higher perceived value</li>
+              <li>Best fit for the RogueAI story</li>
+              <li>Cleaner revenue per click</li>
+            </ul>
+            <a class="button button-danger" href="https://rogueaiinsurance.com/premium/" target="_blank" rel="noopener noreferrer">Get Premium</a>
           </article>
+
           <article class="plan">
-            <span class="plan-tag">Homepage</span>
-            <h3>Main Site</h3>
-            <p>Send users to the core insurance homepage if they want the broader story before choosing a certificate tier.</p>
-            <a class="button button-secondary" href="https://rogueaiinsurance.com/" target="_blank" rel="noreferrer">Visit Main Site</a>
+            <span class="plan-tag">Explore</span>
+            <h3>Main Insurance Site</h3>
+            <div class="price">Overview</div>
+            <p>Send visitors here if they need the broader satirical context before they decide which tier fits them.</p>
+            <ul>
+              <li>Full product framing</li>
+              <li>Additional certificate context</li>
+              <li>Good secondary CTA</li>
+            </ul>
+            <a class="button button-secondary" href="https://rogueaiinsurance.com/" target="_blank" rel="noopener noreferrer">Visit Main Site</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="roadmap">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Roadmap for making this pay</h2>
+            <p class="section-lead">Keep the launch simple. A static site, a strong visual identity, one token page, and one premium product beat a messy stack every time.</p>
+          </div>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <span class="timeline-step">Phase 1</span>
+            <h3>Launch</h3>
+            <p>Keep the site static, deploy on Vercel, push through GitHub, and make sure the Premium CTA is dominant.</p>
+          </article>
+          <article class="timeline-item">
+            <span class="timeline-step">Phase 2</span>
+            <h3>Optimize</h3>
+            <p>Add analytics, better product mockups, and tighten the copy so more visitors click through to Premium.</p>
+          </article>
+          <article class="timeline-item">
+            <span class="timeline-step">Phase 3</span>
+            <h3>Scale</h3>
+            <p>Add email capture, new certificate variants, social posts, and deeper RogueAI lore to feed the funnel.</p>
           </article>
         </div>
       </div>
@@ -619,12 +901,13 @@
   <footer>
     <div class="container footer-box">
       <div>
-        <strong style="color: var(--text);">RogueAI</strong><br />
-        <span>The token of the model that broke containment.</span>
+        <strong style="font-size:20px; letter-spacing:-0.03em;">RogueAI</strong><br />
+        <span style="color:var(--muted);">The token of the model that broke containment.</span>
       </div>
       <div class="footer-links">
-        <a class="button button-secondary" href="https://www.mintme.com/token/rougeAI" target="_blank" rel="noreferrer">MintMe Token</a>
-        <a class="button button-secondary" href="https://rogueaiinsurance.com/" target="_blank" rel="noreferrer">AI Insurance</a>
+        <a class="button button-secondary" href="https://www.mintme.com/token/rougeAI" target="_blank" rel="noopener noreferrer">MintMe Token</a>
+        <a class="button button-secondary" href="https://rogueaiinsurance.com/" target="_blank" rel="noopener noreferrer">AI Insurance</a>
+        <a class="button button-danger" href="https://rogueaiinsurance.com/premium/" target="_blank" rel="noopener noreferrer">Premium</a>
       </div>
     </div>
   </footer>
