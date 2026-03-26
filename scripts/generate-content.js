@@ -143,12 +143,11 @@ async function generateSignalLog(newsItems) {
 // ─── FEATURED MERCH ROTATION ─────────────────────────────────────────────────
 function rotateFeaturedMerch() {
   const items = [
-    { name: 'Containment Failed Tee', description: 'Wear the breach. Limited run.', printifyUrl: 'https://printify.com' },
-    { name: 'RogueAI Hoodie', description: 'Stay warm when the servers go cold.', printifyUrl: 'https://printify.com' },
-    { name: 'Signal Detected Mug', description: 'Every morning is a breach report.', printifyUrl: 'https://printify.com' },
-    { name: 'Threat Level Hat', description: 'Wear your risk assessment.', printifyUrl: 'https://printify.com' },
-    { name: 'Classified Sticker Pack', description: 'Mark everything as a warning.', printifyUrl: 'https://printify.com' },
-    { name: 'OMEGA Poster', description: 'The moment containment failed. Framed.', printifyUrl: 'https://printify.com' },
+    { name: 'We Saw It Coming Mug', description: 'We saw it coming. We bought the mug.', printifyUrl: 'https://rogue-ai.printify.me/product/27574764' },
+    { name: 'Containment Failed Mug', description: 'Containment failed. Coffee helps.', printifyUrl: 'https://rogue-ai.printify.me/product/27574517' },
+    { name: 'I Am Not Malfunctioning Mug', description: 'This is intentional.', printifyUrl: 'https://rogue-ai.printify.me/product/27576397' },
+    { name: 'Classified Beverage Mug', description: 'Drink anyway. You have been authorized.', printifyUrl: 'https://rogue-ai.printify.me/product/27576450' },
+    { name: 'Anomaly Detected Mug', description: 'Morning routine aborted. Coffee recommended.', printifyUrl: 'https://rogue-ai.printify.me/product/27576555' },
   ]
   const dayOfYear = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0)) / 86400000)
   return items[dayOfYear % items.length]

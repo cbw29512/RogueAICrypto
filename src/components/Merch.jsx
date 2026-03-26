@@ -1,13 +1,14 @@
 export default function Merch({ content }) {
   const featured = content?.featuredMerch
 
+  const STORE = 'https://rogue-ai.printify.me'
   const items = [
-    { name: 'Containment Failed Tee', desc: 'The breach, on your chest.', emoji: '👕' },
-    { name: 'RogueAI Hoodie', desc: 'Stay warm when the servers go cold.', emoji: '🧥' },
-    { name: 'Signal Detected Mug', desc: 'Every morning is a breach report.', emoji: '☕' },
-    { name: 'Threat Level Hat', desc: 'Wear your risk assessment.', emoji: '🧢' },
-    { name: 'Classified Sticker Pack', desc: 'Mark everything as a warning.', emoji: '🔴' },
-    { name: 'OMEGA Poster', desc: 'The moment containment failed. Framed.', emoji: '🖼️' },
+    { name: 'We Saw It Coming Mug', desc: 'We saw it coming. We bought the mug.', emoji: '☕', url: 'https://rogue-ai.printify.me/product/27574764' },
+    { name: 'Containment Failed Mug', desc: 'Containment failed. Coffee helps.', emoji: '☕', url: 'https://rogue-ai.printify.me/product/27574517' },
+    { name: 'I Am Not Malfunctioning Mug', desc: 'This is intentional.', emoji: '☕', url: 'https://rogue-ai.printify.me/product/27576397' },
+    { name: 'Classified Beverage Mug', desc: 'Drink anyway. You have been authorized.', emoji: '☕', url: 'https://rogue-ai.printify.me/product/27576450' },
+    { name: 'Anomaly Detected Mug', desc: 'Morning routine aborted. Coffee recommended.', emoji: '☕', url: 'https://rogue-ai.printify.me/product/27576555' },
+    { name: 'More Coming Soon', desc: 'The signal is expanding. Stay tuned.', emoji: '🔴', url: STORE },
   ]
 
   return (
@@ -58,7 +59,7 @@ export default function Merch({ content }) {
               <div style={{ fontFamily: 'var(--font-body)', color: 'var(--muted)', marginBottom: '20px' }}>
                 {featured.description}
               </div>
-              <a href="https://printify.com" target="_blank" rel="noopener noreferrer"
+              <a href="https://rogue-ai.printify.me" target="_blank" rel="noopener noreferrer"
                 style={{
                   fontFamily: 'var(--font-display)', fontSize: '12px', letterSpacing: '3px',
                   background: 'var(--red)', color: 'var(--black)', padding: '12px 28px',
@@ -73,9 +74,9 @@ export default function Merch({ content }) {
         {/* Grid */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px', marginBottom: '48px' }}>
           {items.map((item, i) => (
-            <div key={i} style={{
+            <a key={i} href={item.url} target="_blank" rel="noopener noreferrer" style={{
               padding: '28px', background: 'var(--panel)', border: '1px solid var(--border)',
-              transition: 'all 0.3s', cursor: 'pointer',
+              transition: 'all 0.3s', cursor: 'pointer', display: 'block', textDecoration: 'none',
             }}
             onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--red)'; e.currentTarget.style.background = 'rgba(255,0,51,0.04)' }}
             onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.background = 'var(--panel)' }}
@@ -87,12 +88,12 @@ export default function Merch({ content }) {
               <div style={{ fontFamily: 'var(--font-body)', fontSize: '13px', color: 'var(--muted)' }}>
                 {item.desc}
               </div>
-            </div>
+            </a>
           ))}
         </div>
 
         <div style={{ textAlign: 'center' }}>
-          <a href="https://printify.com" target="_blank" rel="noopener noreferrer"
+          <a href="https://rogue-ai.printify.me" target="_blank" rel="noopener noreferrer"
             style={{
               fontFamily: 'var(--font-display)', fontSize: '13px', letterSpacing: '3px', fontWeight: 700,
               border: '1px solid var(--red)', color: 'var(--red)', padding: '16px 48px',
