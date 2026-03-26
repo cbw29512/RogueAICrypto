@@ -19,7 +19,7 @@
   "featuredMerch": {
     "name": "Containment Failed Tee",
     "description": "Wear the breach. Limited run.",
-    "printifyUrl": "https://printify.com"
+    "printifyUrl": "https://rogue-ai.printify.me"
   },
   "signalLog": [
     "[03:14:07] anomaly_detected = TRUE",
