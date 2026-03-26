@@ -23,8 +23,8 @@ export default function Footer() {
           {/* Links */}
           {[
             { title: 'PRODUCTS', links: [
-              { label: 'Premium Certificate', url: 'https://rogueaiinsurance.com/premium/' },
-              { label: 'Standard Certificate', url: 'https://rogueaiinsurance.com/standard/' },
+              { label: 'Premium Certificate', url: 'https://divclass.gumroad.com/l/devsu' },
+              { label: 'Standard Certificate', url: 'https://divclass.gumroad.com/l/gmgwbe' },
               { label: '$ROGUE Token', url: 'https://www.mintme.com/token/rougeAI' },
               { label: 'Merch Store', url: 'https://rogue-ai.printify.me' },
             ]},

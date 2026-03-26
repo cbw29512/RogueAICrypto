@@ -242,7 +242,7 @@ export default function Hero({ content }) {
           }}
         >
           <a
-            href="https://rogueaiinsurance.com/premium/"
+            href="https://divclass.gumroad.com/l/devsu"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Get premium coverage"
