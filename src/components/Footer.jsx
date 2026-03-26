@@ -60,12 +60,11 @@ export default function Footer() {
         </div>
 
         {/* Satirical disclaimer */}
-        <div style={{
-          borderTop: '1px solid var(--border)', paddingTop: '24px',
+        <div className="footer-disclaimer" style={{
           marginBottom: '20px',
           padding: '20px', background: 'var(--void)', border: '1px solid var(--border)',
           fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--muted)',
-          lineHeight: '1.8', letterSpacing: '1px',
+          lineHeight: '1.9', letterSpacing: '1px',
         }}>
           <span style={{ color: 'var(--amber)', letterSpacing: '3px', display: 'block', marginBottom: '8px' }}>
             ⚠ SATIRICAL CONTENT DISCLOSURE
@@ -92,7 +91,10 @@ export default function Footer() {
           footer > div > div:first-child { grid-template-columns: 1fr 1fr !important; }
         }
         @media (max-width: 480px) {
-          footer > div > div:first-child { grid-template-columns: 1fr !important; }
+          footer > div > div:first-child { grid-template-columns: 1fr !important; gap: 0 !important; }
+          footer > div > div:first-child > div { padding: 20px 0; border-bottom: 1px solid var(--border); }
+          footer > div > div:first-child > div:last-child { border-bottom: none; }
+          .footer-disclaimer { font-size: 11px !important; }
         }
       `}</style>
     </footer>
