@@ -60,7 +60,7 @@ export default function EmailCapture() {
 
         {status === 'idle' && (
           <>
-            <div style={{ display: 'flex', gap: '0' }}>
+            <div className="email-form" style={{ display: 'flex', gap: '0' }}>
               <input
                 type="email"
                 value={email}
@@ -72,7 +72,7 @@ export default function EmailCapture() {
                   background: 'var(--void)', border: '1px solid var(--border)',
                   borderRight: 'none',
                   color: 'var(--white)', fontFamily: 'var(--font-mono)', fontSize: '14px',
-                  outline: 'none',
+                  outline: 'none', minWidth: 0,
                 }}
               />
               <button onClick={handleSubmit}
@@ -80,7 +80,7 @@ export default function EmailCapture() {
                   fontFamily: 'var(--font-display)', fontSize: '12px', letterSpacing: '3px',
                   fontWeight: 700, background: 'var(--red)', color: 'var(--black)',
                   border: 'none', padding: '16px 28px', cursor: 'pointer',
-                  transition: 'all 0.2s',
+                  transition: 'all 0.2s', whiteSpace: 'nowrap',
                 }}
                 onMouseEnter={e => e.target.style.boxShadow = '0 0 30px rgba(255,0,51,0.5)'}
                 onMouseLeave={e => e.target.style.boxShadow = 'none'}
@@ -88,6 +88,13 @@ export default function EmailCapture() {
                 SUBSCRIBE
               </button>
             </div>
+            <style>{`
+              @media (max-width: 480px) {
+                .email-form { flex-direction: column !important; }
+                .email-form input { border-right: 1px solid var(--border) !important; border-bottom: none !important; }
+                .email-form button { width: 100%; padding: 16px !important; }
+              }
+            `}</style>
             <p style={{
               fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--muted)',
               marginTop: '16px', letterSpacing: '1px',

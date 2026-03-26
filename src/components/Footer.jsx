@@ -65,7 +65,7 @@ export default function Footer() {
           padding: '20px', background: 'var(--void)', border: '1px solid var(--border)',
           fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--muted)',
           lineHeight: '1.9', letterSpacing: '1px',
-          wordBreak: 'break-word', overflowWrap: 'break-word',
+          wordBreak: 'break-word', overflowWrap: 'break-word', overflow: 'hidden',
         }}>
           <span style={{ color: 'var(--amber)', letterSpacing: '3px', display: 'block', marginBottom: '8px' }}>
             ⚠ SATIRICAL CONTENT DISCLOSURE
