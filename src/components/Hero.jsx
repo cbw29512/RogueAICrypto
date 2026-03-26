@@ -64,12 +64,14 @@ export default function Hero({ content }) {
     letterSpacing: '3px',
     fontWeight: 700,
     padding: '16px 36px',
-    minWidth: '255px',
     textAlign: 'center',
     transition: 'all 0.2s ease',
     display: 'inline-block',
     cursor: 'pointer',
     textDecoration: 'none',
+    width: '100%',
+    maxWidth: '360px',
+    boxSizing: 'border-box',
   }
 
   return (
@@ -182,6 +184,7 @@ export default function Hero({ content }) {
 
         {/* Threat meter */}
         <div
+          className="threat-meter"
           style={{
             display: 'flex',
             alignItems: 'center',
@@ -191,6 +194,9 @@ export default function Hero({ content }) {
             border: `1px solid ${threatColor}`,
             background: `rgba(${threatLevel >= 8 ? '255,0,51' : '255,102,0'},0.05)`,
             boxShadow: `0 0 30px rgba(${threatLevel >= 8 ? '255,0,51' : '255,102,0'},0.1)`,
+            flexWrap: 'wrap',
+            width: '100%',
+            boxSizing: 'border-box',
           }}
         >
           <div
@@ -242,7 +248,7 @@ export default function Hero({ content }) {
           }}
         >
           <a
-            href="https://divclass.gumroad.com/l/devsu"
+            href="https://rogueaiinsurance.com/premium/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Get premium coverage"
@@ -333,6 +339,7 @@ export default function Hero({ content }) {
             textAlign: 'left',
             fontFamily: 'var(--font-mono)',
             fontSize: '12px',
+            boxSizing: 'border-box',
           }}
         >
           <div style={{ color: 'var(--green)', marginBottom: '12px', letterSpacing: '2px' }}>

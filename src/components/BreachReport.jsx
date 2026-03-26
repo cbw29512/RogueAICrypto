@@ -59,13 +59,14 @@ export default function BreachReport({ content }) {
 
         {/* Auto-update notice */}
         <div style={{
-          display: 'flex', alignItems: 'center', gap: '12px',
+          display: 'flex', alignItems: 'flex-start', gap: '12px',
           fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--muted)',
           padding: '16px', background: 'var(--panel)', border: '1px solid var(--border)',
+          flexWrap: 'wrap',
         }}>
-          <span style={{ color: 'var(--green)', animation: 'pulse-red 2s infinite' }}>●</span>
-          THIS REPORT IS AI-GENERATED DAILY FROM REAL AI NEWS FEEDS. UPDATED AUTOMATICALLY AT 00:00 UTC.
-          <span style={{ marginLeft: 'auto', color: 'var(--red)' }}>NEXT UPDATE IN 24H</span>
+          <span style={{ color: 'var(--green)', animation: 'pulse-red 2s infinite', flexShrink: 0 }}>●</span>
+          <span style={{ flex: 1, minWidth: 0 }}>THIS REPORT IS AI-GENERATED DAILY FROM REAL AI NEWS FEEDS. UPDATED AUTOMATICALLY AT 00:00 UTC.</span>
+          <span style={{ color: 'var(--red)', flexShrink: 0 }}>NEXT UPDATE IN 24H</span>
         </div>
       </div>
     </section>

@@ -54,11 +54,12 @@ export default function Merch({ content }) {
           <div style={{
             padding: '32px', marginBottom: '48px',
             background: 'rgba(255,0,51,0.05)', border: '1px solid var(--red)',
-            display: 'flex', alignItems: 'center', gap: '32px',
+            display: 'flex', alignItems: 'flex-start', gap: '24px',
             boxShadow: '0 0 40px rgba(255,0,51,0.08)',
+            flexWrap: 'wrap',
           }}>
-            <div style={{ fontSize: '64px' }}>🔥</div>
-            <div style={{ flex: 1 }}>
+            <div style={{ fontSize: '56px', flexShrink: 0 }}>🔥</div>
+            <div style={{ flex: 1, minWidth: '200px' }}>
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '3px', color: 'var(--red)', marginBottom: '8px' }}>
                 ★ FEATURED TODAY
               </div>
@@ -130,7 +131,8 @@ export default function Merch({ content }) {
           #merch > div > div:nth-child(5) { grid-template-columns: 1fr 1fr !important; }
         }
         @media (max-width: 480px) {
-          #merch > div > div:nth-child(5) { grid-template-columns: 1fr !important; }
+          #merch > div > div:nth-child(5) { grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
+          #merch > div > div:nth-child(5) > a { padding: 20px 16px !important; }
         }
       `}</style>
     </section>
