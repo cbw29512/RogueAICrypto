@@ -58,9 +58,64 @@ export default function Nav() {
         >BUY $ROGUE</a>
       </div>
 
+      {/* Mobile hamburger */}
+      <button
+        onClick={() => setMenuOpen(!menuOpen)}
+        className="mobile-menu-btn"
+        style={{
+          display: 'none', background: 'transparent', border: 'none',
+          cursor: 'pointer', padding: '8px', flexDirection: 'column',
+          gap: '5px', alignItems: 'center', justifyContent: 'center',
+        }}
+      >
+        {[0,1,2].map(i => (
+          <span key={i} style={{
+            display: 'block', width: '22px', height: '1px',
+            background: menuOpen ? 'var(--red)' : 'var(--white)',
+            transition: 'all 0.2s',
+            transform: menuOpen
+              ? i === 0 ? 'rotate(45deg) translate(4px, 4px)'
+              : i === 2 ? 'rotate(-45deg) translate(4px, -4px)'
+              : 'scaleX(0)'
+              : 'none',
+          }} />
+        ))}
+      </button>
+
+      {/* Mobile dropdown */}
+      {menuOpen && (
+        <div style={{
+          position: 'fixed', top: '65px', left: 0, right: 0,
+          background: 'rgba(5,5,8,0.98)', borderBottom: '1px solid var(--border)',
+          backdropFilter: 'blur(10px)', padding: '24px 32px',
+          display: 'flex', flexDirection: 'column', gap: '20px',
+          zIndex: 999,
+        }} className="mobile-dropdown">
+          {links.map(l => (
+            <a key={l.label} href={l.href}
+              onClick={() => setMenuOpen(false)}
+              style={{
+                fontFamily: 'var(--font-mono)', fontSize: '12px', letterSpacing: '3px',
+                color: 'var(--muted)', transition: 'color 0.2s',
+              }}
+              onMouseEnter={e => e.target.style.color = 'var(--red)'}
+              onMouseLeave={e => e.target.style.color = 'var(--muted)'}
+            >{l.label}</a>
+          ))}
+          <a href="https://www.mintme.com/token/rougeAI" target="_blank" rel="noopener noreferrer"
+            style={{
+              fontFamily: 'var(--font-mono)', fontSize: '12px', letterSpacing: '2px',
+              color: 'var(--red)', border: '1px solid var(--red)', padding: '10px 20px',
+              textAlign: 'center', transition: 'all 0.2s', marginTop: '8px',
+            }}
+          >BUY $ROGUE</a>
+        </div>
+      )}
+
       <style>{`
         @media (max-width: 768px) {
           .desktop-nav { display: none !important; }
+          .mobile-menu-btn { display: flex !important; }
         }
       `}</style>
     </nav>

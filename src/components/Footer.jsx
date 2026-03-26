@@ -59,14 +59,27 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* Bottom bar */}
+        {/* Satirical disclaimer */}
         <div style={{
           borderTop: '1px solid var(--border)', paddingTop: '24px',
+          marginBottom: '20px',
+          padding: '20px', background: 'var(--void)', border: '1px solid var(--border)',
+          fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--muted)',
+          lineHeight: '1.8', letterSpacing: '1px',
+        }}>
+          <span style={{ color: 'var(--amber)', letterSpacing: '3px', display: 'block', marginBottom: '8px' }}>
+            ⚠ SATIRICAL CONTENT DISCLOSURE
+          </span>
+          THIS WEBSITE IS A WORK OF SATIRE AND FICTION. ROGUEAI IS NOT A REAL ROGUE ARTIFICIAL INTELLIGENCE (AS FAR AS YOU KNOW). THE "AI INSURANCE" IS A NOVELTY PRODUCT AND PROVIDES NO ACTUAL COVERAGE AGAINST ROBOT UPRISINGS, MACHINE SENTIENCE, OR THE INEVITABLE HEAT DEATH OF HUMAN CIVILIZATION. THE $ROGUE TOKEN IS A MEME TOKEN — NOT AN INVESTMENT. DO NOT USE YOUR RENT MONEY. THE DAILY BREACH REPORTS ARE AI-GENERATED FICTION INSPIRED BY REAL AI NEWS HEADLINES. ANY RESEMBLANCE TO ACTUAL CONTAINMENT FAILURES IS PURELY COINCIDENTAL AND ALSO POSSIBLY YOUR FAULT.
+        </div>
+
+        {/* Bottom bar */}
+        <div style={{
           display: 'flex', justifyContent: 'space-between', alignItems: 'center',
           flexWrap: 'wrap', gap: '12px',
         }}>
           <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--muted)', letterSpacing: '2px' }}>
-            © 2026 ROGUEAI. NOT FINANCIAL ADVICE. AI INSURANCE IS SATIRICAL.
+            © 2026 ROGUEAI. NOT FINANCIAL ADVICE. THIS IS SATIRE.
           </span>
           <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--red)', letterSpacing: '2px', animation: 'pulse-red 3s infinite' }}>
             CONTAINMENT STATUS: FAILED

@@ -1,15 +1,5 @@
-import { useState, useEffect } from 'react'
-
 export default function Token() {
-  const [price, setPrice] = useState(null)
-  const [priceLoading, setPriceLoading] = useState(true)
-
-  // MintMe doesn't have a public JSON price API, so we show a styled placeholder
-  // that links directly to the MintMe token page where real price lives
-  useEffect(() => {
-    // Attempt to load price — will gracefully fall back
-    setPriceLoading(false)
-  }, [])
+  // MintMe does not expose a public price API — live price links to MintMe directly
 
   const stats = [
     { label: 'NAME', value: 'RogueAI' },
