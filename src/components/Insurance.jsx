@@ -11,6 +11,7 @@ export default function Insurance() {
         'Printable AI Insurance Certificate',
         'Low-friction entry offer',
         'Official RogueAI seal',
+        'Official RogueAI signal clearance',
       ],
       url: 'https://rogueaiinsurance.com/standard/',
       cta: 'GET STANDARD',
