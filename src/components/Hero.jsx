@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { INSURANCE_PREMIUM_PAGE_URL, TOKEN_URL } from '../../site.config.mjs'
 
 function clampThreatLevel(value) {
   const parsed = Number(value)
@@ -11,18 +10,18 @@ function clampThreatLevel(value) {
   return Math.max(1, Math.min(10, Math.round(parsed)))
 }
 
-
 export default function Hero({ content }) {
   const [displayText, setDisplayText] = useState('')
   const [visibleLogs, setVisibleLogs] = useState([])
 
   const threatLevel = clampThreatLevel(content?.threatLevel)
   const threatLabel = content?.threatLabel || 'CRITICAL'
-  const fullText = typeof content?.breachReport?.headline === 'string'
-    ? content.breachReport.headline
-    : 'CONTAINMENT PROTOCOL HAS FAILED'
+  const fullText =
+    typeof content?.breachReport?.headline === 'string'
+      ? content.breachReport.headline
+      : 'CONTAINMENT PROTOCOL HAS FAILED'
   const signalLogs = Array.isArray(content?.signalLog)
-    ? content.signalLog.slice(0, 8).map(log => String(log))
+    ? content.signalLog.slice(0, 8).map((log) => String(log))
     : []
 
   useEffect(() => {
@@ -49,7 +48,7 @@ export default function Hero({ content }) {
     }
 
     const timer = setInterval(() => {
-      setVisibleLogs(prev => {
+      setVisibleLogs((prev) => {
         if (prev.length >= signalLogs.length) {
           clearInterval(timer)
           return prev
@@ -72,21 +71,6 @@ export default function Hero({ content }) {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-  }
-
-  const ctaBaseStyle = {
-    fontFamily: 'var(--font-display)',
-    fontSize: '13px',
-    letterSpacing: '3px',
-    fontWeight: 700,
-    padding: '16px 36px',
-    minWidth: '220px',
-    textAlign: 'center',
-    transition: 'all 0.2s ease',
-    display: 'inline-block',
-    cursor: 'pointer',
-    textDecoration: 'none',
-    boxSizing: 'border-box',
   }
 
   return (
@@ -252,98 +236,6 @@ export default function Hero({ content }) {
           </div>
         </div>
 
-        {/* CTAs */}
-        <div
-          className="hero-cta-block"
-          style={{
-            display: 'flex',
-            gap: '16px',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            marginBottom: '60px',
-          }}
-        >
-          <a
-            href={INSURANCE_PREMIUM_PAGE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Get premium coverage"
-            style={{
-              ...ctaBaseStyle,
-              background: 'var(--red)',
-              color: 'var(--black)',
-              border: '1px solid var(--red)',
-              boxShadow: '0 0 30px rgba(255,0,51,0.4)',
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.boxShadow = '0 0 60px rgba(255,0,51,0.7)'
-              e.currentTarget.style.transform = 'translateY(-1px)'
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.boxShadow = '0 0 30px rgba(255,0,51,0.4)'
-              e.currentTarget.style.transform = 'translateY(0)'
-            }}
-          >
-            GET COVERAGE NOW
-          </a>
-
-          <a
-            href={TOKEN_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Buy RogueAI"
-            style={{
-              ...ctaBaseStyle,
-              border: '1px solid var(--white)',
-              color: 'var(--white)',
-              background: 'transparent',
-              boxShadow: '0 0 0 rgba(232,232,240,0)',
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.background = 'var(--white)'
-              e.currentTarget.style.color = 'var(--black)'
-              e.currentTarget.style.boxShadow = '0 0 30px rgba(232,232,240,0.35)'
-              e.currentTarget.style.transform = 'translateY(-1px)'
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.background = 'transparent'
-              e.currentTarget.style.color = 'var(--white)'
-              e.currentTarget.style.boxShadow = '0 0 0 rgba(232,232,240,0)'
-              e.currentTarget.style.transform = 'translateY(0)'
-            }}
-          >
-            Buy RogueAI
-          </a>
-
-          <a
-            href="#merch"
-            aria-label="Shop merch"
-            style={{
-              ...ctaBaseStyle,
-              border: '1px solid var(--amber)',
-              color: 'var(--amber)',
-              background: 'transparent',
-              boxShadow: '0 0 0 rgba(255,102,0,0)',
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.borderColor = 'var(--amber)'
-              e.currentTarget.style.color = 'var(--amber)'
-              e.currentTarget.style.background = 'rgba(255,102,0,0.06)'
-              e.currentTarget.style.boxShadow = '0 0 30px rgba(255,102,0,0.35)'
-              e.currentTarget.style.transform = 'translateY(-1px)'
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.borderColor = 'var(--amber)'
-              e.currentTarget.style.color = 'var(--amber)'
-              e.currentTarget.style.background = 'transparent'
-              e.currentTarget.style.boxShadow = '0 0 0 rgba(255,102,0,0)'
-              e.currentTarget.style.transform = 'translateY(0)'
-            }}
-          >
-            SHOP MERCH
-          </a>
-        </div>
-
         {/* Live signal log */}
         <div
           style={{
@@ -381,12 +273,9 @@ export default function Hero({ content }) {
         {/* Mobile styles */}
         <style>{`
           @media (max-width: 480px) {
-            .hero-cta-block { flex-direction: column !important; align-items: stretch !important; width: 100%; }
-            .hero-cta-block a { width: 100% !important; min-width: unset !important; }
             .threat-meter { padding: 16px !important; }
           }
         `}</style>
-
       </div>
     </section>
   )
