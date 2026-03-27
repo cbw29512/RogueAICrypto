@@ -1,0 +1,15 @@
+{
+  "_instructions": "Add these dependencies to your existing package.json. Do not replace your full package.json — just merge these in.",
+
+  "dependencies_to_add": {
+    "canvas": "^2.11.2"
+  },
+
+  "scripts_to_add": {
+    "generate": "node scripts/generate-content.mjs"
+  },
+
+  "_canvas_note": "The 'canvas' package requires native build tools. On Ubuntu (GitHub Actions), this is handled automatically. On Windows locally, you may need to install windows-build-tools or use WSL to test the sticker generation step. The pipeline now lazy-loads canvas. If canvas is missing, it skips sticker image generation and logs a warning.",
+
+  "_type_note": "Your package.json needs 'type': 'module' for .mjs imports to work, OR keep the file as generate-content.mjs (the .mjs extension handles it automatically without needing to change package.json type)."
+}

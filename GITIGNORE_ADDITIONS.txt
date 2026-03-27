@@ -1,0 +1,10 @@
+# Add these lines to your existing .gitignore
+
+# Printify config — contains API secrets, never commit
+scripts/printify-config.json
+
+# Node modules — should already be here
+node_modules/
+
+# Build output — should already be here
+dist/

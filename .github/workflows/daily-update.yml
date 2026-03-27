@@ -1,0 +1,72 @@
+name: RogueAI Daily Content
+
+on:
+  schedule:
+    # Runs at midnight UTC every day
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+    inputs:
+      skip_printify:
+        description: 'Skip Printify product creation (true/false)'
+        required: false
+        default: 'false'
+
+# Prevent overlapping runs
+concurrency:
+  group: daily-content
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Materialize Printify config from secret
+        # This fixes the local-only config problem.
+        # The secret value is the full JSON contents of printify-config.json.
+        run: |
+          if [ -n "${{ secrets.ROGUEAI_PRINTIFY_CONFIG }}" ]; then
+            echo '${{ secrets.ROGUEAI_PRINTIFY_CONFIG }}' > scripts/printify-config.json
+            echo "[OK] Printify config materialized from secret"
+          else
+            echo "[WARN] ROGUEAI_PRINTIFY_CONFIG secret not set — Printify steps will be skipped"
+          fi
+
+      - name: Run daily content generator
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          PRINTIFY_API_KEY:  ${{ secrets.PRINTIFY_API_KEY }}
+          SKIP_PRINTIFY:     ${{ github.event.inputs.skip_printify || 'false' }}
+        run: node scripts/generate-content.mjs
+
+      - name: Commit updated state and content
+        run: |
+          git config user.name  "RogueAI Pipeline"
+          git config user.email "rogueai@rogueaicrypto.com"
+
+          # Stage all three state files — this is the fix from the audit.
+          # Previous version only staged daily-content.json, losing product history.
+          git add public/daily-content.json
+          git add scripts/rogueai-sayings.json
+          git add scripts/product-history.json
+
+          # Only commit if something actually changed
+          git diff --staged --quiet || git commit -m "Daily breach report — $(date -u +%Y-%m-%d)"
+
+      - name: Push changes
+        run: git push
