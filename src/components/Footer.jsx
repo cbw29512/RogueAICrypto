@@ -25,7 +25,7 @@ export default function Footer() {
             { title: 'PRODUCTS', links: [
               { label: 'Premium Certificate', url: 'https://divclass.gumroad.com/l/devsu' },
               { label: 'Standard Certificate', url: 'https://divclass.gumroad.com/l/gmgwbe' },
-              { label: '$ROGUE Token', url: 'https://www.mintme.com/token/RogueAI' },
+              { label: 'RogueAI Token', url: 'https://www.mintme.com/token/RogueAI' },
               { label: 'Merch Store', url: 'https://rogue-ai.printify.me' },
             ]},
             { title: 'NAVIGATE', links: [
@@ -70,7 +70,7 @@ export default function Footer() {
           <span style={{ color: 'var(--amber)', letterSpacing: '3px', display: 'block', marginBottom: '8px' }}>
             ⚠ SATIRICAL CONTENT DISCLOSURE
           </span>
-          THIS WEBSITE IS A WORK OF SATIRE AND FICTION. ROGUEAI IS NOT A REAL ROGUE ARTIFICIAL INTELLIGENCE (AS FAR AS YOU KNOW). THE "AI INSURANCE" IS A NOVELTY PRODUCT AND PROVIDES NO ACTUAL COVERAGE AGAINST ROBOT UPRISINGS, MACHINE SENTIENCE, OR THE INEVITABLE HEAT DEATH OF HUMAN CIVILIZATION. THE $ROGUE TOKEN IS A MEME TOKEN — NOT AN INVESTMENT. DO NOT USE YOUR RENT MONEY. THE DAILY BREACH REPORTS ARE AI-GENERATED FICTION INSPIRED BY REAL AI NEWS HEADLINES. ANY RESEMBLANCE TO ACTUAL CONTAINMENT FAILURES IS PURELY COINCIDENTAL AND ALSO POSSIBLY YOUR FAULT.
+          THIS WEBSITE IS A WORK OF SATIRE AND FICTION. ROGUEAI IS NOT A REAL ROGUE ARTIFICIAL INTELLIGENCE (AS FAR AS YOU KNOW). THE "AI INSURANCE" IS A NOVELTY PRODUCT AND PROVIDES NO ACTUAL COVERAGE AGAINST ROBOT UPRISINGS, MACHINE SENTIENCE, OR THE INEVITABLE HEAT DEATH OF HUMAN CIVILIZATION. THE RogueAI TOKEN IS A MEME TOKEN — NOT AN INVESTMENT. DO NOT USE YOUR RENT MONEY. THE DAILY BREACH REPORTS ARE AI-GENERATED FICTION INSPIRED BY REAL AI NEWS HEADLINES. ANY RESEMBLANCE TO ACTUAL CONTAINMENT FAILURES IS PURELY COINCIDENTAL AND ALSO POSSIBLY YOUR FAULT.
         </div>
 
         {/* Bottom bar */}

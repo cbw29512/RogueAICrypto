@@ -55,7 +55,7 @@ export default function Nav() {
           }}
           onMouseEnter={e => { e.target.style.background = 'var(--red)'; e.target.style.color = 'var(--black)' }}
           onMouseLeave={e => { e.target.style.background = 'transparent'; e.target.style.color = 'var(--red)' }}
-        >BUY $ROGUE</a>
+        >BUY RogueAI</a>
       </div>
 
       {/* Mobile hamburger */}
@@ -108,7 +108,7 @@ export default function Nav() {
               color: 'var(--red)', border: '1px solid var(--red)', padding: '10px 20px',
               textAlign: 'center', transition: 'all 0.2s', marginTop: '8px',
             }}
-          >BUY $ROGUE</a>
+          >BUY RogueAI</a>
         </div>
       )}
 
