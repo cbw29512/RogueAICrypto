@@ -25,7 +25,7 @@ export default function Footer() {
             { title: 'PRODUCTS', links: [
               { label: 'Premium Certificate', url: 'https://divclass.gumroad.com/l/devsu' },
               { label: 'Standard Certificate', url: 'https://divclass.gumroad.com/l/gmgwbe' },
-              { label: '$ROGUE Token', url: 'https://www.mintme.com/token/rougeAI' },
+              { label: '$ROGUE Token', url: 'https://www.mintme.com/token/RogueAI' },
               { label: 'Merch Store', url: 'https://rogue-ai.printify.me' },
             ]},
             { title: 'NAVIGATE', links: [
@@ -36,7 +36,7 @@ export default function Footer() {
             ]},
             { title: 'SIGNAL', links: [
               { label: 'rogueaiinsurance.com', url: 'https://rogueaiinsurance.com/' },
-              { label: 'MintMe Token', url: 'https://www.mintme.com/token/rougeAI' },
+              { label: 'MintMe Token', url: 'https://www.mintme.com/token/RogueAI' },
             ]},
           ].map((col, i) => (
             <div key={i}>

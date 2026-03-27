@@ -47,7 +47,7 @@ export default function Nav() {
           onMouseLeave={e => e.target.style.color = 'var(--muted)'}
           >{l.label}</a>
         ))}
-        <a href="https://www.mintme.com/token/rougeAI" target="_blank" rel="noopener noreferrer"
+        <a href="https://www.mintme.com/token/RogueAI" target="_blank" rel="noopener noreferrer"
           style={{
             fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '2px',
             color: 'var(--red)', border: '1px solid var(--red)', padding: '6px 16px',
@@ -102,7 +102,7 @@ export default function Nav() {
               onMouseLeave={e => e.target.style.color = 'var(--muted)'}
             >{l.label}</a>
           ))}
-          <a href="https://www.mintme.com/token/rougeAI" target="_blank" rel="noopener noreferrer"
+          <a href="https://www.mintme.com/token/RogueAI" target="_blank" rel="noopener noreferrer"
             style={{
               fontFamily: 'var(--font-mono)', fontSize: '12px', letterSpacing: '2px',
               color: 'var(--red)', border: '1px solid var(--red)', padding: '10px 20px',
