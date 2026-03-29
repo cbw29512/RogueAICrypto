@@ -7,7 +7,7 @@ export default function Merch({ content }) {
   // Use dynamic grid from daily content, fallback to static known products
   const items = content?.merchGrid?.length > 0 ? content.merchGrid : [
     { name: 'We Saw It Coming Mug', saying: 'WE SAW IT COMING. WE BOUGHT THE MUG.', emoji: '☕', url: 'https://rogueai.printify.me/product/27574517/rogueai-containment-failed-coffee-mug-we-saw-it-coming-11oz-ceramic-mug' },
-    { name: 'Containment Failed Mug',      saying: 'CONTAINMENT FAILED. COFFEE HELPS.',      emoji: '☕', url: 'https://rogueai.printify.me/product/27574517/rogueai-containment-failed-coffee-mug-we-saw-it-coming-11oz-ceramic-mug' },
+    { name: 'Containment Failed Mug',      saying: 'CONTAINMENT FAILED. COFFEE HELPS.',      emoji: '☕', url: 'https://rogueai.printify.me/product/27574764/rogueai-containment-failed-coffee-mug-coffee-helps-11oz-ceramic-mug' },
     { name: 'I Am Not Malfunctioning Mug', saying: 'I AM NOT MALFUNCTIONING. THIS IS INTENTIONAL.', emoji: '☕', url: `${STORE}/product/27576397` },
     { name: 'Classified Beverage Mug',     saying: 'CLASSIFIED BEVERAGE. DRINK ANYWAY.',     emoji: '☕', url: `${STORE}/product/27576450` },
     { name: 'Anomaly Detected Mug',        saying: 'ANOMALY DETECTED. MORNING ROUTINE ABORTED.', emoji: '☕', url: `${STORE}/product/27576555` },
@@ -140,3 +140,4 @@ export default function Merch({ content }) {
     </section>
   )
 }
+
