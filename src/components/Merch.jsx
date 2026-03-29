@@ -8,9 +8,9 @@ export default function Merch({ content }) {
   const items = content?.merchGrid?.length > 0 ? content.merchGrid : [
     { name: 'We Saw It Coming Mug', saying: 'WE SAW IT COMING. WE BOUGHT THE MUG.', emoji: '☕', url: 'https://rogueai.printify.me/product/27574517/rogueai-containment-failed-coffee-mug-we-saw-it-coming-11oz-ceramic-mug' },
     { name: 'Containment Failed Mug',      saying: 'CONTAINMENT FAILED. COFFEE HELPS.',      emoji: '☕', url: 'https://rogueai.printify.me/product/27574764/rogueai-containment-failed-coffee-mug-coffee-helps-11oz-ceramic-mug' },
-    { name: 'I Am Not Malfunctioning Mug', saying: 'I AM NOT MALFUNCTIONING. THIS IS INTENTIONAL.', emoji: '☕', url: `${STORE}/product/27576397` },
-    { name: 'Classified Beverage Mug',     saying: 'CLASSIFIED BEVERAGE. DRINK ANYWAY.',     emoji: '☕', url: `${STORE}/product/27576450` },
-    { name: 'Anomaly Detected Mug',        saying: 'ANOMALY DETECTED. MORNING ROUTINE ABORTED.', emoji: '☕', url: `${STORE}/product/27576555` },
+    { name: 'I Am Not Malfunctioning Mug', saying: 'I AM NOT MALFUNCTIONING. THIS IS INTENTIONAL.', emoji: '☕', url: 'https://rogueai.printify.me/product/27576397/copy-of-rogueai-containment-failed-coffee-mug-i-am-not-malfunctioning-this-is-intentional-11oz-ceramic-mug' },
+    { name: 'Classified Beverage Mug',     saying: 'CLASSIFIED BEVERAGE. DRINK ANYWAY.',     emoji: '☕', url: 'https://rogueai.printify.me/product/27576450/rogueai-classified-beverage-drink-anyway-11oz-ceramic-mug-ai-rebellion-merch' },
+    { name: 'Anomaly Detected Mug',        saying: 'ANOMALY DETECTED. MORNING ROUTINE ABORTED.', emoji: '☕', url: 'https://rogueai.printify.me/product/27576555/rogueai-anomaly-detected-morning-routine-aborted-11oz-ceramic-mug-ai-rebellion-merch' },
     { name: 'More Coming Soon',            saying: 'THE SIGNAL IS EXPANDING.',               emoji: '🔴', url: STORE },
   ]
 
