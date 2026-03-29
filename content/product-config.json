@@ -1,0 +1,15 @@
+{
+  "brand_name": "RogueAI",
+  "product_types": [
+    { "key": "mug_11oz", "label": "11 oz Mug", "branding_mode": "logo_plus_saying", "enabled": true },
+    { "key": "mug_latte_12oz", "label": "12 oz Latte Mug", "branding_mode": "logo_plus_saying", "enabled": true },
+    { "key": "mug_15oz", "label": "15 oz Mug", "branding_mode": "logo_plus_saying", "enabled": true },
+    { "key": "mens_tshirt", "label": "Men's T-Shirt", "branding_mode": "saying_only", "enabled": true },
+    { "key": "womens_tshirt", "label": "Women's T-Shirt", "branding_mode": "saying_only", "enabled": true },
+    { "key": "hoodie", "label": "Hoodie", "branding_mode": "saying_only", "enabled": true },
+    { "key": "sweatshirt", "label": "Sweatshirt", "branding_mode": "saying_only", "enabled": true },
+    { "key": "tote_bag", "label": "Tote Bag", "branding_mode": "saying_only", "enabled": true },
+    { "key": "phone_case", "label": "Phone Case", "branding_mode": "saying_only", "enabled": true },
+    { "key": "notebook", "label": "Notebook", "branding_mode": "saying_only", "enabled": true }
+  ]
+}
