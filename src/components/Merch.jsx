@@ -6,7 +6,7 @@ export default function Merch({ content }) {
 
   // Use dynamic grid from daily content, fallback to static known products
   const items = content?.merchGrid?.length > 0 ? content.merchGrid : [
-    { name: 'We Saw It Coming Mug',        saying: 'WE SAW IT COMING. WE BOUGHT THE MUG.',  emoji: '☕', url: `${STORE}/product/27574764` },
+    { name: 'We Saw It Coming Mug', saying: 'WE SAW IT COMING. WE BOUGHT THE MUG.', emoji: '☕', url: `${STORE}/product/27574517` },
     { name: 'Containment Failed Mug',      saying: 'CONTAINMENT FAILED. COFFEE HELPS.',      emoji: '☕', url: `${STORE}/product/27574517` },
     { name: 'I Am Not Malfunctioning Mug', saying: 'I AM NOT MALFUNCTIONING. THIS IS INTENTIONAL.', emoji: '☕', url: `${STORE}/product/27576397` },
     { name: 'Classified Beverage Mug',     saying: 'CLASSIFIED BEVERAGE. DRINK ANYWAY.',     emoji: '☕', url: `${STORE}/product/27576450` },
