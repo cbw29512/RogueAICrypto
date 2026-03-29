@@ -6,8 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
-  },
+    "preview": "vite preview",
+    "validate:merch": "node ./scripts/validate-merch-pipeline.mjs"
+},
   "dependencies": {
     "node-fetch": "^3.3.2",
     "react": "^18.2.0",
