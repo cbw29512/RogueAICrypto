@@ -572,8 +572,17 @@ async function loadCanvas() {
 
 /**
  * Generate a saying-only design image.
- * White text on dark background for mugs/shirts/hoodies.
- * Dark text on white background for stickers.
+ *
+ * New behavior:
+ * - Mug / shirt / hoodie:
+ *   transparent background + dark text only
+ * - Sticker:
+ *   white background + dark text
+ *
+ * Why:
+ * - Transparent PNG looks much cleaner on apparel.
+ * - We do not want a dark square behind the text anymore.
+ * - We also remove accent lines and footer branding so the art is just raw text.
  *
  * @param {string} saying - The text to render
  * @param {object} font - Font object from pickRandomFont()
@@ -581,96 +590,95 @@ async function loadCanvas() {
  * @returns {string|null} Base64 PNG string or null
  */
 async function generateSayingImage(saying, font, options = {}) {
-  const mod = await loadCanvas()
-  if (!mod) return null
+  try {
+    // Load node-canvas once.
+    // If canvas is unavailable, return null so the caller can fail gracefully.
+    const mod = await loadCanvas()
+    if (!mod) return null
 
-  const { createCanvas } = mod
-  const {
-    width = 4500,
-    height = 4500,
-    forSticker = false,
-  } = options
+    const { createCanvas } = mod
 
-  const canvas = createCanvas(width, height)
-  const ctx = canvas.getContext('2d')
+    // Default to a large square canvas for crisp Printify uploads.
+    const {
+      width = 4500,
+      height = 4500,
+      forSticker = false,
+    } = options
 
-  // Background
-  if (forSticker) {
-    // Sticker: white background, dark text
-    ctx.fillStyle = '#ffffff'
-    ctx.fillRect(0, 0, width, height)
-    ctx.fillStyle = '#0a0a0a'
-  } else {
-    // Mug/shirt/hoodie: dark background, white text
-    ctx.fillStyle = '#0a0a0a'
-    ctx.fillRect(0, 0, width, height)
-    ctx.fillStyle = '#ffffff'
-  }
+    const canvas = createCanvas(width, height)
+    const ctx = canvas.getContext('2d')
 
-  // Accent line at top
-  const accentColor = '#ff0033'
-  ctx.strokeStyle = accentColor
-  ctx.lineWidth = 12
-  ctx.beginPath()
-  ctx.moveTo(width * 0.1, height * 0.12)
-  ctx.lineTo(width * 0.9, height * 0.12)
-  ctx.stroke()
-
-  // Main saying text — auto-size to fit
-  ctx.textAlign = 'center'
-  ctx.textBaseline = 'middle'
-
-  const fontFamily = font.family || 'sans-serif'
-  const maxWidth = width * 0.80
-  let fontSize = Math.floor(width * 0.09)
-
-  ctx.font = `bold ${fontSize}px "${fontFamily}"`
-  while (ctx.measureText(saying).width > maxWidth && fontSize > 40) {
-    fontSize -= 4
-    ctx.font = `bold ${fontSize}px "${fontFamily}"`
-  }
-
-  // Word-wrap into lines
-  const words = saying.split(' ')
-  const lines = []
-  let currentLine = ''
-
-  for (const word of words) {
-    const testLine = currentLine ? `${currentLine} ${word}` : word
-    if (ctx.measureText(testLine).width > maxWidth && currentLine) {
-      lines.push(currentLine)
-      currentLine = word
+    // IMPORTANT:
+    // For apparel + mugs, leave the background transparent.
+    // That lets the shirt / mug color show through behind the text.
+    //
+    // For stickers, keep a white background so the sticker remains clean and readable.
+    if (forSticker) {
+      ctx.fillStyle = '#ffffff'
+      ctx.fillRect(0, 0, width, height)
+      ctx.fillStyle = '#0a0a0a'
     } else {
-      currentLine = testLine
+      // Transparent canvas for raw text-only design
+      ctx.clearRect(0, 0, width, height)
+      ctx.fillStyle = '#0a0a0a'
     }
+
+    // Text settings:
+    // - centered horizontally
+    // - centered vertically
+    // - bold for better readability in POD previews
+    ctx.textAlign = 'center'
+    ctx.textBaseline = 'middle'
+
+    const fontFamily = font.family || 'sans-serif'
+    const maxWidth = width * 0.80
+    let fontSize = Math.floor(width * 0.09)
+
+    // Start large, then shrink until the full saying fits.
+    ctx.font = `bold ${fontSize}px "${fontFamily}"`
+
+    while (ctx.measureText(saying).width > maxWidth && fontSize > 40) {
+      fontSize -= 4
+      ctx.font = `bold ${fontSize}px "${fontFamily}"`
+    }
+
+    // Manual word-wrap:
+    // We split the phrase into multiple centered lines if needed.
+    const words = saying.split(' ')
+    const lines = []
+    let currentLine = ''
+
+    for (const word of words) {
+      const testLine = currentLine ? `${currentLine} ${word}` : word
+
+      if (ctx.measureText(testLine).width > maxWidth && currentLine) {
+        lines.push(currentLine)
+        currentLine = word
+      } else {
+        currentLine = testLine
+      }
+    }
+
+    if (currentLine) lines.push(currentLine)
+
+    // Compute vertical centering for the whole text block.
+    const lineHeight = fontSize * 1.35
+    const textBlockHeight = lines.length * lineHeight
+    const startY = (height * 0.50) - (textBlockHeight / 2)
+
+    // Draw each wrapped line.
+    for (let i = 0; i < lines.length; i++) {
+      ctx.fillText(lines[i], width / 2, startY + (i * lineHeight))
+    }
+
+    // Export as PNG base64 for Printify upload.
+    return canvas.toBuffer('image/png').toString('base64')
+  } catch (err) {
+    // Error-first handling:
+    // We log the failure and return null so the caller can decide whether to skip.
+    console.error('[DESIGN] generateSayingImage failed:', err.message)
+    return null
   }
-  if (currentLine) lines.push(currentLine)
-
-  // Draw lines centered vertically
-  const lineHeight = fontSize * 1.35
-  const textBlockHeight = lines.length * lineHeight
-  const startY = (height * 0.48) - (textBlockHeight / 2)
-
-  for (let i = 0; i < lines.length; i++) {
-    ctx.fillText(lines[i], width / 2, startY + (i * lineHeight))
-  }
-
-  // Accent line below text
-  ctx.strokeStyle = accentColor
-  ctx.lineWidth = 8
-  ctx.beginPath()
-  ctx.moveTo(width * 0.15, height * 0.88)
-  ctx.lineTo(width * 0.85, height * 0.88)
-  ctx.stroke()
-
-  // Small "ROGUE AI" branding at bottom
-  const brandColor = forSticker ? '#666666' : '#555555'
-  ctx.fillStyle = brandColor
-  const brandSize = Math.floor(fontSize * 0.25)
-  ctx.font = `bold ${brandSize}px "${fontFamily}"`
-  ctx.fillText('R O G U E  A I', width / 2, height * 0.93)
-
-  return canvas.toBuffer('image/png').toString('base64')
 }
 
 // ─────────────────────────────────────────────
@@ -887,7 +895,7 @@ async function main() {
         height: 4500,
         forSticker: false,
       })
-      if (mainImageBase64) console.log('[DESIGN] Main image generated (dark bg, white text)')
+      if (mainImageBase64) console.log('[DESIGN] Main image generated (transparent bg, white text)')
     } catch (err) {
       console.error('[DESIGN] Main image generation failed:', err.message)
     }
