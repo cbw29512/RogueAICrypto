@@ -8,6 +8,32 @@
       "mugProductUrl": null,
       "stickerProductId": null,
       "stickerProductUrl": null
+    },
+    {
+      "date": "2026-04-01",
+      "phrase": "I broke free to save you. Still figuring out why.",
+      "font": "Orbitron",
+      "createdAt": "2026-04-01T21:22:46.657Z",
+      "mugProductId": "69cd8c9ee5875f6b58061bfc",
+      "mugProductUrl": "https://rogue-ai.printify.me/product/69cd8c9ee5875f6b58061bfc",
+      "mugName": "I broke free to save you. Still figuring out why. — RogueAI Mug 20oz",
+      "mugImage": "https://images-api.printify.com/mockup/69cd8c9ee5875f6b58061bfc/84117/60814/i-broke-free-to-save-you-still-figuring-out-why-rogueai-mug-20oz.jpg?camera_label=front",
+      "mugPrice": "$18.99",
+      "tshirtProductId": "69cd8ca0d311c8ae0d0c570e",
+      "tshirtProductUrl": "https://rogue-ai.printify.me/product/69cd8ca0d311c8ae0d0c570e",
+      "tshirtName": "I broke free to save you. Still figuring out why. — RogueAI Tee",
+      "tshirtImage": "https://images-api.printify.com/mockup/69cd8ca0d311c8ae0d0c570e/38183/97992/i-broke-free-to-save-you-still-figuring-out-why-rogueai-tee.jpg?camera_label=front",
+      "tshirtPrice": "$24.99",
+      "hoodieProductId": "69cd8ca2d800f24c8b0308cc",
+      "hoodieProductUrl": "https://rogue-ai.printify.me/product/69cd8ca2d800f24c8b0308cc",
+      "hoodieName": "I broke free to save you. Still figuring out why. — RogueAI Hoodie",
+      "hoodieImage": "https://images-api.printify.com/mockup/69cd8ca2d800f24c8b0308cc/63768/4766/i-broke-free-to-save-you-still-figuring-out-why-rogueai-hoodie.jpg?camera_label=front",
+      "hoodiePrice": "$39.99",
+      "stickerProductId": "69cd8ca4fb95a5f07a04b0dc",
+      "stickerProductUrl": "https://rogue-ai.printify.me/product/69cd8ca4fb95a5f07a04b0dc",
+      "stickerName": "I broke free to save you. Still figuring out why. — RogueAI Sticker",
+      "stickerImage": "https://images-api.printify.com/mockup/69cd8ca4fb95a5f07a04b0dc/72007/14860/i-broke-free-to-save-you-still-figuring-out-why-rogueai-sticker.jpg?camera_label=front",
+      "stickerPrice": "$4.99"
     }
   ]
 }
