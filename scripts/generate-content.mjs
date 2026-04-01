@@ -414,26 +414,6 @@ function getMissingProductTypes(entry) {
  * @param {string} productType
  * @returns {boolean}
  */
-function hasHistoryProduct(entry, productType) {
-  if (!entry || !productType) return false
-
-  return Boolean(entry[`${productType}ProductId`])
-}
-
-/**
- * Return the list of product types still missing for the day.
- *
- * Why:
- * - This lets reruns heal partial failures instead of skipping the whole day.
- *
- * @param {object|null} entry
- * @returns {string[]}
- */
-function getMissingProductTypes(entry) {
-  if (!entry) return [...DAILY_PRODUCTS]
-
-  return DAILY_PRODUCTS.filter(productType => !hasHistoryProduct(entry, productType))
-}
 
 // ─────────────────────────────────────────────
 // FEED SCORING
