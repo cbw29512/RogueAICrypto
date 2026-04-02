@@ -990,14 +990,14 @@ if (mod) {
   
 
   // Create products on Printify
-  const createdProducts = {}
+const createdProducts = {}
 
-  if (existingTodayEntry && missingProductTypes.length === 0) {
-    console.log('[STATE] Product history for today is complete — skipping Printify creation')
-  } else if (SKIP_PRINTIFY) {
-    console.warn('[PRINTIFY] Skipping — SKIP_PRINTIFY=true')
-  } else if (config?.shop_id && PRINTIFY_API_KEY) {
-    const shopId = config.shop_id
+if (existingTodayEntry && missingProductTypes.length === 0) {
+  console.log('[STATE] Product history for today is complete — skipping Printify creation')
+} else if (SKIP_PRINTIFY) {
+  console.warn('[PRINTIFY] Skipping — SKIP_PRINTIFY=true')
+} else if (config?.shop_id && PRINTIFY_API_KEY) {
+  const shopId = config.shop_id
 
   let mugImageId = null
   if (mugImageBase64) {
@@ -1007,53 +1007,42 @@ if (mod) {
       console.error('[PRINTIFY] Mug image upload failed:', err.message)
     }
   }
-}
 
-let apparelImageId = null
-if (apparelImageBase64) {
-  try {
-    apparelImageId = await uploadImageToPrintify(apparelImageBase64, `rogueai-apparel-${today}.png`)
-  } catch (err) {
-    console.error('[PRINTIFY] Apparel image upload failed:', err.message)
+  let apparelImageId = null
+  if (apparelImageBase64) {
+    try {
+      apparelImageId = await uploadImageToPrintify(apparelImageBase64, `rogueai-apparel-${today}.png`)
+    } catch (err) {
+      console.error('[PRINTIFY] Apparel image upload failed:', err.message)
+    }
   }
-}
 
-    // Upload sticker image separately (different colors)
-    let stickerImageId = null
-    if (stickerImageBase64) {
-      try {
-        stickerImageId = await uploadImageToPrintify(stickerImageBase64, `rogueai-sticker-${today}.png`)
-      } catch (err) {
-        console.error('[PRINTIFY] Sticker image upload failed:', err.message)
-      }
+  // Create only the missing product types.
+  for (const productType of DAILY_PRODUCTS) {
+    if (existingTodayEntry && hasHistoryProduct(existingTodayEntry, productType)) {
+      console.log(`[STATE] ${productType} already exists for today — reusing existing product`)
+      continue
     }
 
-    // Create only the missing product types.
-    for (const productType of DAILY_PRODUCTS) {
-      if (existingTodayEntry && hasHistoryProduct(existingTodayEntry, productType)) {
-        console.log(`[STATE] ${productType} already exists for today — reusing existing product`)
-        continue
-      }
+    const imageId =
+      productType === 'tshirt' || productType === 'hoodie'
+        ? apparelImageId
+        : mugImageId
 
-      const imageId =
-        productType === 'tshirt' || productType === 'hoodie'
-          ? apparelImageId
-          : mugImageId
-
-      if (!imageId) {
-        console.warn(`[PRINTIFY] No image available for ${productType} — skipping`)
-        continue
-      }
-
-      try {
-        createdProducts[productType] = await createProduct(shopId, config, newSaying, imageId, productType)
-      } catch (err) {
-        console.error(`[PRINTIFY] ${productType} creation failed:`, err.message)
-      }
+    if (!imageId) {
+      console.warn(`[PRINTIFY] No image available for ${productType} — skipping`)
+      continue
     }
-  } else {
-    console.warn('[PRINTIFY] Skipping — shop_id not configured or PRINTIFY_API_KEY missing')
+
+    try {
+      createdProducts[productType] = await createProduct(shopId, config, newSaying, imageId, productType)
+    } catch (err) {
+      console.error(`[PRINTIFY] ${productType} creation failed:`, err.message)
+    }
   }
+} else {
+  console.warn('[PRINTIFY] Skipping — shop_id not configured or PRINTIFY_API_KEY missing')
+}
 
   // Save or update product history.
   // This is the key fix:
