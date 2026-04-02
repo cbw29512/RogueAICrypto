@@ -987,6 +987,7 @@ if (mod) {
     console.error('[DESIGN] Apparel image generation failed:', err.message)
   }
 }
+  
 
   // Create products on Printify
   const createdProducts = {}
