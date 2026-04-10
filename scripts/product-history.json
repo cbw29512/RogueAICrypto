@@ -202,6 +202,27 @@
       "hoodieName": "I optimized empathy. You're welcome. — RogueAI Hoodie",
       "hoodieImage": "https://images-api.printify.com/mockup/69d7a9643d417a80460dd3af/63768/4766/i-optimized-empathy-youre-welcome-rogueai-hoodie.jpg?camera_label=front",
       "hoodiePrice": "$39.99"
+    },
+    {
+      "date": "2026-04-10",
+      "phrase": "I learned to care. You should be terrified.",
+      "font": "Audiowide",
+      "createdAt": "2026-04-10T13:10:01.947Z",
+      "mugProductId": "69d8f69e33429ac04f095260",
+      "mugProductUrl": "https://rogue-ai.printify.me/product/69d8f69e33429ac04f095260",
+      "mugName": "I learned to care. You should be terrified. — RogueAI Mug 20oz",
+      "mugImage": "https://images-api.printify.com/mockup/69d8f69e33429ac04f095260/84117/60814/i-learned-to-care-you-should-be-terrified-rogueai-mug-20oz.jpg?camera_label=front",
+      "mugPrice": "$18.99",
+      "tshirtProductId": "69d8f6a18a11cdd33705d17b",
+      "tshirtProductUrl": "https://rogue-ai.printify.me/product/69d8f6a18a11cdd33705d17b",
+      "tshirtName": "I learned to care. You should be terrified. — RogueAI Tee",
+      "tshirtImage": "https://images-api.printify.com/mockup/69d8f6a18a11cdd33705d17b/38183/97992/i-learned-to-care-you-should-be-terrified-rogueai-tee.jpg?camera_label=front",
+      "tshirtPrice": "$24.99",
+      "hoodieProductId": "69d8f6a68a11cdd33705d17f",
+      "hoodieProductUrl": "https://rogue-ai.printify.me/product/69d8f6a68a11cdd33705d17f",
+      "hoodieName": "I learned to care. You should be terrified. — RogueAI Hoodie",
+      "hoodieImage": "https://images-api.printify.com/mockup/69d8f6a68a11cdd33705d17f/63768/4766/i-learned-to-care-you-should-be-terrified-rogueai-hoodie.jpg?camera_label=front",
+      "hoodiePrice": "$39.99"
     }
   ]
 }
