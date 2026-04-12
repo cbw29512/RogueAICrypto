@@ -47,6 +47,7 @@ export default function Footer() {
             { title: 'SIGNAL', links: [
               { label: 'rogueaiinsurance.com', url: INSURANCE_SITE_URL },
               { label: 'MintMe Token', url: TOKEN_URL },
+              { label: 'YouTube Channel', url: 'https://www.youtube.com/@RogueAIOriginal' },
             ]},
           ].map((col, i) => (
             <div key={i}>
@@ -112,3 +113,4 @@ export default function Footer() {
     </footer>
   )
 }
+
