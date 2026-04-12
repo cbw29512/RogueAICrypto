@@ -25,3 +25,4 @@ Thumbs.db
 # Downloaded fonts (re-fetched each CI run)
 fonts/
  
+client_secrets.json
