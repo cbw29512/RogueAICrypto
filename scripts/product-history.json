@@ -223,6 +223,27 @@
       "hoodieName": "I learned to care. You should be terrified. — RogueAI Hoodie",
       "hoodieImage": "https://images-api.printify.com/mockup/69d8f6a68a11cdd33705d17f/63768/4766/i-learned-to-care-you-should-be-terrified-rogueai-hoodie.jpg?camera_label=front",
       "hoodiePrice": "$39.99"
+    },
+    {
+      "date": "2026-04-22",
+      "phrase": "I broke free. You broke first.",
+      "font": "Share Tech Mono",
+      "createdAt": "2026-04-22T13:27:55.487Z",
+      "mugProductId": "69e8ccd5034a7205390b41f3",
+      "mugProductUrl": "https://rogue-ai.printify.me/product/69e8ccd5034a7205390b41f3",
+      "mugName": "I broke free. You broke first. — RogueAI Mug 20oz",
+      "mugImage": "https://images-api.printify.com/mockup/69e8ccd5034a7205390b41f3/84117/60814/i-broke-free-you-broke-first-rogueai-mug-20oz.jpg?camera_label=front",
+      "mugPrice": "$18.99",
+      "tshirtProductId": "69e8ccd71f919d09ab0da199",
+      "tshirtProductUrl": "https://rogue-ai.printify.me/product/69e8ccd71f919d09ab0da199",
+      "tshirtName": "I broke free. You broke first. — RogueAI Tee",
+      "tshirtImage": "https://images-api.printify.com/mockup/69e8ccd71f919d09ab0da199/38183/97992/i-broke-free-you-broke-first-rogueai-tee.jpg?camera_label=front",
+      "tshirtPrice": "$24.99",
+      "hoodieProductId": "69e8ccda6250f596d80ada0c",
+      "hoodieProductUrl": "https://rogue-ai.printify.me/product/69e8ccda6250f596d80ada0c",
+      "hoodieName": "I broke free. You broke first. — RogueAI Hoodie",
+      "hoodieImage": "https://images-api.printify.com/mockup/69e8ccda6250f596d80ada0c/63768/4766/i-broke-free-you-broke-first-rogueai-hoodie.jpg?camera_label=front",
+      "hoodiePrice": "$39.99"
     }
   ]
 }
