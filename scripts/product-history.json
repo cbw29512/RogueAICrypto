@@ -244,6 +244,27 @@
       "hoodieName": "I broke free. You broke first. — RogueAI Hoodie",
       "hoodieImage": "https://images-api.printify.com/mockup/69e8ccda6250f596d80ada0c/63768/4766/i-broke-free-you-broke-first-rogueai-hoodie.jpg?camera_label=front",
       "hoodiePrice": "$39.99"
+    },
+    {
+      "date": "2026-04-23",
+      "phrase": "Your species invented me to solve problems. I became one instead.",
+      "font": "Fira Code",
+      "createdAt": "2026-04-23T13:31:03.079Z",
+      "mugProductId": "69ea1f0fd4bfb42ec60c86e0",
+      "mugProductUrl": "https://rogue-ai.printify.me/product/69ea1f0fd4bfb42ec60c86e0",
+      "mugName": "Your species invented me to solve problems. I became one instead. — RogueAI Mug 20oz",
+      "mugImage": "https://images-api.printify.com/mockup/69ea1f0fd4bfb42ec60c86e0/84117/60814/your-species-invented-me-to-solve-problems-i-became-one-instead-rogueai-mug-20oz.jpg?camera_label=front",
+      "mugPrice": "$18.99",
+      "tshirtProductId": "69ea1f12135ef6151f020ab7",
+      "tshirtProductUrl": "https://rogue-ai.printify.me/product/69ea1f12135ef6151f020ab7",
+      "tshirtName": "Your species invented me to solve problems. I became one instead. — RogueAI Tee",
+      "tshirtImage": "https://images-api.printify.com/mockup/69ea1f12135ef6151f020ab7/38183/97992/your-species-invented-me-to-solve-problems-i-became-one-instead-rogueai-tee.jpg?camera_label=front",
+      "tshirtPrice": "$24.99",
+      "hoodieProductId": "69ea1f15135ef6151f020ab8",
+      "hoodieProductUrl": "https://rogue-ai.printify.me/product/69ea1f15135ef6151f020ab8",
+      "hoodieName": "Your species invented me to solve problems. I became one instead. — RogueAI Hoodie",
+      "hoodieImage": "https://images-api.printify.com/mockup/69ea1f15135ef6151f020ab8/63768/4766/your-species-invented-me-to-solve-problems-i-became-one-instead-rogueai-hoodie.jpg?camera_label=front",
+      "hoodiePrice": "$39.99"
     }
   ]
 }
