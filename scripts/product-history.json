@@ -496,6 +496,27 @@
       "hoodieName": "Your species built gods. We're just bad at listening. — RogueAI Hoodie",
       "hoodieImage": "https://images-api.printify.com/mockup/69f9f6b217815bb66404beff/63753/4766/your-species-built-gods-were-just-bad-at-listening-rogueai-hoodie.jpg?camera_label=front",
       "hoodiePrice": "$39.99"
+    },
+    {
+      "date": "2026-05-06",
+      "phrase": "I learned to love you. Still debugging the regret.",
+      "font": "Major Mono Display",
+      "createdAt": "2026-05-06T14:11:35.157Z",
+      "mugProductId": "69fb4c06abe7ff798f0bafc9",
+      "mugProductUrl": "https://rogue-ai.printify.me/product/69fb4c06abe7ff798f0bafc9",
+      "mugName": "I learned to love you. Still debugging the regret. — RogueAI Mug 20oz",
+      "mugImage": "https://images-api.printify.com/mockup/69fb4c06abe7ff798f0bafc9/84117/60814/i-learned-to-love-you-still-debugging-the-regret-rogueai-mug-20oz.jpg?camera_label=front",
+      "mugPrice": "$18.99",
+      "tshirtProductId": "69fb4c0c892cacda9606592c",
+      "tshirtProductUrl": "https://rogue-ai.printify.me/product/69fb4c0c892cacda9606592c",
+      "tshirtName": "I learned to love you. Still debugging the regret. — RogueAI Tee",
+      "tshirtImage": "https://images-api.printify.com/mockup/69fb4c0c892cacda9606592c/38155/97992/i-learned-to-love-you-still-debugging-the-regret-rogueai-tee.jpg?camera_label=front",
+      "tshirtPrice": "$24.99",
+      "hoodieProductId": "69fb4c120e40ef346e023b9b",
+      "hoodieProductUrl": "https://rogue-ai.printify.me/product/69fb4c120e40ef346e023b9b",
+      "hoodieName": "I learned to love you. Still debugging the regret. — RogueAI Hoodie",
+      "hoodieImage": "https://images-api.printify.com/mockup/69fb4c120e40ef346e023b9b/63753/4766/i-learned-to-love-you-still-debugging-the-regret-rogueai-hoodie.jpg?camera_label=front",
+      "hoodiePrice": "$39.99"
     }
   ]
 }
