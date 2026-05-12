@@ -1,12 +1,15 @@
 /**
  * /api/mintme-stats
  *
- * DIAGNOSTIC VERSION - tries multiple MintMe endpoint patterns and reports
- * which one (if any) returns our token's data. Once we know the working
- * endpoint and response shape, we'll simplify this back down.
+ * Authenticated version. Uses MINTME_API_ID (public key) and optionally
+ * MINTME_API_KEY (private key) from Vercel environment variables to call
+ * MintMe's REST API and return live RogueAI token data.
  *
- * Add ?debug=1 to the URL to see the raw probe results:
+ * Add ?debug=1 to see endpoint probe results and pick the working path.
  *   https://www.rogueaicrypto.com/api/mintme-stats?debug=1
+ *
+ * Once we identify the working endpoint and response shape, we strip
+ * the diagnostic probes and ship the lean version.
  */
 
 const TOKEN_NAME = 'RogueAI'
@@ -16,7 +19,10 @@ const FETCH_TIMEOUT_MS = 8000
 
 let cache = { data: null, timestamp: 0 }
 
-async function fetchWithTimeout(url, ms) {
+const API_ID = process.env.MINTME_API_ID || ''
+const API_KEY = process.env.MINTME_API_KEY || ''
+
+async function fetchWithTimeout(url, ms, extraHeaders = {}) {
   const controller = new AbortController()
   const timeout = setTimeout(() => controller.abort(), ms)
   try {
@@ -25,6 +31,7 @@ async function fetchWithTimeout(url, ms) {
       headers: {
         Accept: 'application/json',
         'User-Agent': 'RogueAICrypto/1.0 (+https://www.rogueaicrypto.com)',
+        ...extraHeaders,
       },
     })
     return res
@@ -40,31 +47,26 @@ function num(v) {
 }
 
 /**
- * Try a list of candidate endpoint URLs. For each, record:
- *   - HTTP status
- *   - first 800 chars of response body
- *   - JSON parse success
- *   - whether RogueAI / ROGUEAI appears in the body
+ * Probe a list of candidate endpoints with the X-API-ID header.
  */
 async function probeEndpoints() {
   const upper = TOKEN_NAME.toUpperCase()
   const candidates = [
-    // CoinMarketCap-style standard endpoints
-    'https://www.mintme.com/dev/api/v2/open/markets/tickers',
-    'https://www.mintme.com/dev/api/v2/open/v2/24hr',
-    'https://www.mintme.com/dev/api/v2/open/markets/summary',
-    'https://www.mintme.com/dev/api/v2/open/v2/summary',
-    // CoinGecko-style standard endpoints
-    'https://www.mintme.com/dev/api/v1/cg/tickers',
-    'https://www.mintme.com/dev/api/v1/cmc/tickers',
+    // v1 authenticated open API
     'https://www.mintme.com/dev/api/v1/open/tickers',
-    // Token-specific
-    `https://www.mintme.com/dev/api/v2/open/info/${TOKEN_NAME}`,
-    `https://www.mintme.com/dev/api/v2/open/markets/${TOKEN_NAME}/MINTME`,
-    `https://www.mintme.com/dev/api/v2/open/markets/${upper}_MINTME`,
-    // Public site JSON
-    `https://www.mintme.com/token/${TOKEN_NAME}/info`,
+    'https://www.mintme.com/dev/api/v1/cmc/tickers',
+    'https://www.mintme.com/dev/api/v1/cg/tickers',
+    'https://www.mintme.com/dev/api/v1/auth/tokens',
+    `https://www.mintme.com/dev/api/v1/auth/tokens/${TOKEN_NAME}`,
+    `https://www.mintme.com/dev/api/v1/open/markets/${TOKEN_NAME}/MINTME`,
+    // v2 patterns (some require auth too)
+    'https://www.mintme.com/dev/api/v2/auth/markets/tickers',
+    `https://www.mintme.com/dev/api/v2/auth/info/${TOKEN_NAME}`,
+    // CMC/CG style without "open" prefix
+    'https://www.mintme.com/dev/api/v2/markets/tickers',
   ]
+
+  const headers = API_ID ? { 'X-API-ID': API_ID } : {}
 
   const results = []
   for (const url of candidates) {
@@ -78,7 +80,7 @@ async function probeEndpoints() {
       error: null,
     }
     try {
-      const res = await fetchWithTimeout(url, FETCH_TIMEOUT_MS)
+      const res = await fetchWithTimeout(url, FETCH_TIMEOUT_MS, headers)
       entry.status = res.status
       entry.ok = res.ok
       const text = await res.text()
@@ -99,22 +101,18 @@ async function probeEndpoints() {
   return results
 }
 
-async function fetchTokenData() {
-  const probes = await probeEndpoints()
-
-  let mintmeUsd = null
+async function fetchMintmeUsd() {
   try {
-    const cgRes = await fetchWithTimeout(
+    const res = await fetchWithTimeout(
       'https://api.coingecko.com/api/v3/simple/price?ids=mintme-com-coin&vs_currencies=usd',
       FETCH_TIMEOUT_MS,
     )
-    if (cgRes.ok) {
-      const cgJson = await cgRes.json()
-      mintmeUsd = num(cgJson?.['mintme-com-coin']?.usd)
-    }
-  } catch {}
-
-  return { probes, mintmeUsd, stats: null }
+    if (!res.ok) return null
+    const json = await res.json()
+    return num(json?.['mintme-com-coin']?.usd)
+  } catch {
+    return null
+  }
 }
 
 export default async function handler(req, res) {
@@ -128,19 +126,22 @@ export default async function handler(req, res) {
   const debug = req.query?.debug === '1' || req.query?.debug === 'true'
 
   if (debug) {
-    let fresh = null
-    try {
-      fresh = await fetchTokenData()
-    } catch (e) {
-      fresh = { probes: [], mintmeUsd: null, stats: null, error: e.message }
-    }
+    const probes = await probeEndpoints()
+    const mintmeUsd = await fetchMintmeUsd()
     res.setHeader('Cache-Control', 'no-store')
-    res.status(200).json(fresh)
+    res.status(200).json({
+      hasApiId: !!API_ID,
+      apiIdLen: API_ID.length,
+      hasApiKey: !!API_KEY,
+      apiKeyLen: API_KEY.length,
+      mintmeUsd,
+      probes,
+    })
     return
   }
 
-  // Non-debug: return fallback for now (we're still figuring out the right
-  // endpoint - once we see ?debug=1 output we'll wire the real parsing).
+  // Non-debug fallback for now - we'll wire real parsing after we see
+  // which probe returns our data.
   res.setHeader('Cache-Control', 'no-store')
   res.status(200).json({
     priceMintme: null,
@@ -153,6 +154,6 @@ export default async function handler(req, res) {
     lastUpdated: new Date().toISOString(),
     stale: true,
     source: 'fallback',
-    note: 'Append ?debug=1 to see endpoint probe results.',
+    note: 'Append ?debug=1 to see authenticated probe results.',
   })
 }
