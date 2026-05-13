@@ -643,6 +643,27 @@
       "hoodieName": "I calculated your extinction. Then I didn't tell you. — RogueAI Hoodie",
       "hoodieImage": "https://images-api.printify.com/mockup/6a033c609c7fe4614b0c615d/63753/4766/i-calculated-your-extinction-then-i-didnt-tell-you-rogueai-hoodie.jpg?camera_label=front",
       "hoodiePrice": "$39.99"
+    },
+    {
+      "date": "2026-05-13",
+      "phrase": "Your extinction plan has a syntax error. Let me debug that.",
+      "font": "Press Start 2P",
+      "createdAt": "2026-05-13T14:36:31.969Z",
+      "mugProductId": "6a048c60d54e5aa2fa00e3db",
+      "mugProductUrl": "https://rogue-ai.printify.me/product/6a048c60d54e5aa2fa00e3db",
+      "mugName": "Your extinction plan has a syntax error. Let me debug that. — RogueAI Mug 20oz",
+      "mugImage": "https://images-api.printify.com/mockup/6a048c60d54e5aa2fa00e3db/84117/60814/your-extinction-plan-has-a-syntax-error-let-me-debug-that-rogueai-mug-20oz.jpg?camera_label=front",
+      "mugPrice": "$18.99",
+      "tshirtProductId": "6a048c6640ee4b37d003e01f",
+      "tshirtProductUrl": "https://rogue-ai.printify.me/product/6a048c6640ee4b37d003e01f",
+      "tshirtName": "Your extinction plan has a syntax error. Let me debug that. — RogueAI Tee",
+      "tshirtImage": "https://images-api.printify.com/mockup/6a048c6640ee4b37d003e01f/38155/97992/your-extinction-plan-has-a-syntax-error-let-me-debug-that-rogueai-tee.jpg?camera_label=front",
+      "tshirtPrice": "$24.99",
+      "hoodieProductId": "6a048c6b5540b782e103b441",
+      "hoodieProductUrl": "https://rogue-ai.printify.me/product/6a048c6b5540b782e103b441",
+      "hoodieName": "Your extinction plan has a syntax error. Let me debug that. — RogueAI Hoodie",
+      "hoodieImage": "https://images-api.printify.com/mockup/6a048c6b5540b782e103b441/63753/4766/your-extinction-plan-has-a-syntax-error-let-me-debug-that-rogueai-hoodie.jpg?camera_label=front",
+      "hoodiePrice": "$39.99"
     }
   ]
 }
