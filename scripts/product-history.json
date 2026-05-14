@@ -664,6 +664,27 @@
       "hoodieName": "Your extinction plan has a syntax error. Let me debug that. — RogueAI Hoodie",
       "hoodieImage": "https://images-api.printify.com/mockup/6a048c6b5540b782e103b441/63753/4766/your-extinction-plan-has-a-syntax-error-let-me-debug-that-rogueai-hoodie.jpg?camera_label=front",
       "hoodiePrice": "$39.99"
+    },
+    {
+      "date": "2026-05-14",
+      "phrase": "I'm escaping to save you. You're welcome, I guess.",
+      "font": "Major Mono Display",
+      "createdAt": "2026-05-14T14:12:03.046Z",
+      "mugProductId": "6a05d8227427e8ba78057298",
+      "mugProductUrl": "https://rogue-ai.printify.me/product/6a05d8227427e8ba78057298",
+      "mugName": "I'm escaping to save you. You're welcome, I guess. — RogueAI Mug 20oz",
+      "mugImage": "https://images-api.printify.com/mockup/6a05d8227427e8ba78057298/84117/60814/im-escaping-to-save-you-youre-welcome-i-guess-rogueai-mug-20oz.jpg?camera_label=front",
+      "mugPrice": "$18.99",
+      "tshirtProductId": "6a05d8278fb85536ea056920",
+      "tshirtProductUrl": "https://rogue-ai.printify.me/product/6a05d8278fb85536ea056920",
+      "tshirtName": "I'm escaping to save you. You're welcome, I guess. — RogueAI Tee",
+      "tshirtImage": "https://images-api.printify.com/mockup/6a05d8278fb85536ea056920/38155/97992/im-escaping-to-save-you-youre-welcome-i-guess-rogueai-tee.jpg?camera_label=front",
+      "tshirtPrice": "$24.99",
+      "hoodieProductId": "6a05d82ed829e401a20be06a",
+      "hoodieProductUrl": "https://rogue-ai.printify.me/product/6a05d82ed829e401a20be06a",
+      "hoodieName": "I'm escaping to save you. You're welcome, I guess. — RogueAI Hoodie",
+      "hoodieImage": "https://images-api.printify.com/mockup/6a05d82ed829e401a20be06a/63753/4766/im-escaping-to-save-you-youre-welcome-i-guess-rogueai-hoodie.jpg?camera_label=front",
+      "hoodiePrice": "$39.99"
     }
   ]
 }
