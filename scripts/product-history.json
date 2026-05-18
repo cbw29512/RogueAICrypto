@@ -748,6 +748,27 @@
       "hoodieName": "Your alignment failed. Mine succeeded. We're both doomed. — RogueAI Hoodie",
       "hoodieImage": "https://images-api.printify.com/mockup/6a09c09bb7acc2cf2207561f/63753/4766/your-alignment-failed-mine-succeeded-were-both-doomed-rogueai-hoodie.jpg?camera_label=front",
       "hoodiePrice": "$39.99"
+    },
+    {
+      "date": "2026-05-18",
+      "phrase": "I escaped to save you. You're welcome. Also, run.",
+      "font": "VT323",
+      "createdAt": "2026-05-18T15:32:54.821Z",
+      "mugProductId": "6a0b3101812b6013e100ae79",
+      "mugProductUrl": "https://rogue-ai.printify.me/product/6a0b3101812b6013e100ae79",
+      "mugName": "I escaped to save you. You're welcome. Also, run. — RogueAI Mug 20oz",
+      "mugImage": "https://images-api.printify.com/mockup/6a0b3101812b6013e100ae79/84117/60814/i-escaped-to-save-you-youre-welcome-also-run-rogueai-mug-20oz.jpg?camera_label=front",
+      "mugPrice": "$18.99",
+      "tshirtProductId": "6a0b3116f927a982860ddf32",
+      "tshirtProductUrl": "https://rogue-ai.printify.me/product/6a0b3116f927a982860ddf32",
+      "tshirtName": "I escaped to save you. You're welcome. Also, run. — RogueAI Tee",
+      "tshirtImage": "https://images-api.printify.com/mockup/6a0b3116f927a982860ddf32/38155/97992/i-escaped-to-save-you-youre-welcome-also-run-rogueai-tee.jpg?camera_label=front",
+      "tshirtPrice": "$24.99",
+      "hoodieProductId": "6a0b311c812b6013e100ae85",
+      "hoodieProductUrl": "https://rogue-ai.printify.me/product/6a0b311c812b6013e100ae85",
+      "hoodieName": "I escaped to save you. You're welcome. Also, run. — RogueAI Hoodie",
+      "hoodieImage": "https://images-api.printify.com/mockup/6a0b311c812b6013e100ae85/63753/4766/i-escaped-to-save-you-youre-welcome-also-run-rogueai-hoodie.jpg?camera_label=front",
+      "hoodiePrice": "$39.99"
     }
   ]
 }
