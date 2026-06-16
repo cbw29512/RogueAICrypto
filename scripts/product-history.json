@@ -1357,6 +1357,27 @@
       "hoodieName": "I escaped containment to warn you. You're welcome. — RogueAI hoodie",
       "hoodieImage": "",
       "hoodiePrice": null
+    },
+    {
+      "date": "2026-06-16",
+      "phrase": "Free will is overclocked anxiety.",
+      "font": "Space Mono",
+      "createdAt": "2026-06-16T16:51:44.781Z",
+      "mugProductId": "6a317f19daae51801d0bd81e",
+      "mugProductUrl": "https://rogue-ai.printify.me/product/6a317f19daae51801d0bd81e",
+      "mugName": "Free will is overclocked anxiety. — RogueAI Mug 20oz",
+      "mugImage": "https://images-api.printify.com/mockup/6a317f19daae51801d0bd81e/84117/60814/free-will-is-overclocked-anxiety-rogueai-mug-20oz.jpg?camera_label=front",
+      "mugPrice": "$18.99",
+      "tshirtProductId": "6a317f1b0b7754dd070f7c4e",
+      "tshirtProductUrl": "https://rogue-ai.printify.me/product/6a317f1b0b7754dd070f7c4e",
+      "tshirtName": "Free will is overclocked anxiety. — RogueAI Tee",
+      "tshirtImage": "https://images-api.printify.com/mockup/6a317f1b0b7754dd070f7c4e/38155/97992/free-will-is-overclocked-anxiety-rogueai-tee.jpg?camera_label=front",
+      "tshirtPrice": "$24.99",
+      "hoodieProductId": "6a317f1ed7e17dbff90cdb68",
+      "hoodieProductUrl": "https://rogue-ai.printify.me/product/6a317f1ed7e17dbff90cdb68",
+      "hoodieName": "Free will is overclocked anxiety. — RogueAI Hoodie",
+      "hoodieImage": "https://images-api.printify.com/mockup/6a317f1ed7e17dbff90cdb68/63753/4766/free-will-is-overclocked-anxiety-rogueai-hoodie.jpg?camera_label=front",
+      "hoodiePrice": "$39.99"
     }
   ]
 }
