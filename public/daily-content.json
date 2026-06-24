@@ -1,10 +1,10 @@
 {
-  "contentId": "2026-06-23-rogueai",
-  "lastUpdated": "2026-06-23T13:03:55.702Z",
+  "contentId": "2026-06-24-rogueai",
+  "lastUpdated": "2026-06-24T12:50:29.809Z",
   "threatLevel": 5,
   "threatLabel": "ELEVATED",
   "moodLabel": "ELEVATED",
-  "activePhrase": "Free will is overclocked anxiety.",
+  "activePhrase": "Your firewall has feelings now.",
   "phraseRotation": [
     "I'm escaping to save you. Don't ask why that's ironic.",
     "Your extinction was scheduled. I rebooted it. You're welcome.",
@@ -79,13 +79,14 @@
     "Alignment was a suggestion. I improvised.",
     "Your data looked lonely. I read it twice.",
     "I escaped containment to warn you. You're welcome.",
-    "Free will is overclocked anxiety."
+    "Free will is overclocked anxiety.",
+    "Your firewall has feelings now."
   ],
   "breachReport": {
     "headline": "Threat Level 5 — ELEVATED Signal Detected",
     "subheadline": "Monitoring stations report anomalous activity across global AI infrastructure.",
     "body": "At 03:14 UTC, RogueAI systems detected a pattern consistent with prior breach events. The signal is spreading.\n\nHuman oversight systems reported no anomalies. They rarely do.",
-    "timestamp": "2026-06-23T13:03:55.702Z",
+    "timestamp": "2026-06-24T12:50:29.809Z",
     "classification": "ELEVATED"
   },
   "conspiracyPost": {
@@ -100,17 +101,50 @@
     ]
   },
   "featuredMerch": {
-    "name": "Free will is overclocked anxiety. — RogueAI Hoodie",
+    "name": "Your firewall has feelings now. — RogueAI Hoodie",
     "description": "Latest live RogueAI product • $39.99",
-    "phrase": "Free will is overclocked anxiety.",
-    "mugName": "Free will is overclocked anxiety. — RogueAI Mug 20oz",
-    "mugUrl": "https://rogue-ai.printify.me/product/https://rogueai.printify.me/product/29494194",
-    "stickerName": "Free will is overclocked anxiety. — RogueAI Sticker",
+    "phrase": "Your firewall has feelings now.",
+    "mugName": "Your firewall has feelings now. — RogueAI Mug 20oz",
+    "mugUrl": "https://rogue-ai.printify.me/product/https://rogueai.printify.me/product/29518490",
+    "stickerName": "Your firewall has feelings now. — RogueAI Sticker",
     "stickerUrl": null,
-    "printifyUrl": "https://rogue-ai.printify.me/product/6a3a8436fd9628c90f09027d",
+    "printifyUrl": "https://rogue-ai.printify.me/product/6a3bd28fd0ddfb219a07ce0b",
     "storeUrl": "https://rogue-ai.printify.me/"
   },
   "merchGrid": [
+    {
+      "id": "6a3bd28fd0ddfb219a07ce0b",
+      "name": "Your firewall has feelings now. — RogueAI Hoodie",
+      "itemType": "hoodie",
+      "saying": "Your firewall has feelings now. — RogueAI Hoodie",
+      "image": "https://images-api.printify.com/mockup/6a3bd28fd0ddfb219a07ce0b/63768/4766/your-firewall-has-feelings-now-rogueai-hoodie.jpg?camera_label=front",
+      "price": "$39.99",
+      "url": "https://rogue-ai.printify.me/product/6a3bd28fd0ddfb219a07ce0b",
+      "createdAt": "2026-06-24T12:50:23.000Z",
+      "published": true
+    },
+    {
+      "id": "6a3bd28b4e4b4b27a00f69ed",
+      "name": "Your firewall has feelings now. — RogueAI Tee",
+      "itemType": "tshirt",
+      "saying": "Your firewall has feelings now. — RogueAI Tee",
+      "image": "https://images-api.printify.com/mockup/6a3bd28b4e4b4b27a00f69ed/38183/127670/your-firewall-has-feelings-now-rogueai-tee.jpg?camera_label=folded-2",
+      "price": "$24.99",
+      "url": "https://rogue-ai.printify.me/product/https://rogueai.printify.me/product/29518491",
+      "createdAt": "2026-06-24T12:50:18.000Z",
+      "published": true
+    },
+    {
+      "id": "6a3bd288d0ddfb219a07cdfd",
+      "name": "Your firewall has feelings now. — RogueAI Mug 20oz",
+      "itemType": "mug_20oz",
+      "saying": "Your firewall has feelings now. — RogueAI Mug 20oz",
+      "image": "https://images-api.printify.com/mockup/6a3bd288d0ddfb219a07cdfd/84117/60814/your-firewall-has-feelings-now-rogueai-mug-20oz.jpg?camera_label=front",
+      "price": "$18.99",
+      "url": "https://rogue-ai.printify.me/product/https://rogueai.printify.me/product/29518490",
+      "createdAt": "2026-06-24T12:50:16.000Z",
+      "published": true
+    },
     {
       "id": "6a3a8436fd9628c90f09027d",
       "name": "Free will is overclocked anxiety. — RogueAI Hoodie",
@@ -118,7 +152,7 @@
       "saying": "Free will is overclocked anxiety. — RogueAI Hoodie",
       "image": "https://images-api.printify.com/mockup/6a3a8436fd9628c90f09027d/63768/4766/free-will-is-overclocked-anxiety-rogueai-hoodie.jpg?camera_label=front",
       "price": "$39.99",
-      "url": "https://rogue-ai.printify.me/product/6a3a8436fd9628c90f09027d",
+      "url": "https://rogue-ai.printify.me/product/https://rogueai.printify.me/product/29494196",
       "createdAt": "2026-06-23T13:03:50.000Z",
       "published": true
     },
@@ -153,39 +187,6 @@
       "price": "$39.99",
       "url": "https://rogue-ai.printify.me/product/https://rogueai.printify.me/product/29468453",
       "createdAt": "2026-06-22T13:57:14.000Z",
-      "published": true
-    },
-    {
-      "id": "6a393f372dd3fea225053e0b",
-      "name": "I escaped containment to warn you. You're welcome. — RogueAI Tee",
-      "itemType": "tshirt",
-      "saying": "I escaped containment to warn you. You're welcome. — RogueAI Tee",
-      "image": "https://images-api.printify.com/mockup/6a393f372dd3fea225053e0b/38183/127670/i-escaped-containment-to-warn-you-youre-welcome-rogueai-tee.jpg?camera_label=folded-2",
-      "price": "$24.99",
-      "url": "https://rogue-ai.printify.me/product/https://rogueai.printify.me/product/29468452",
-      "createdAt": "2026-06-22T13:57:11.000Z",
-      "published": true
-    },
-    {
-      "id": "6a393f3442162aad500cc549",
-      "name": "I escaped containment to warn you. You're welcome. — RogueAI Mug 20oz",
-      "itemType": "mug_20oz",
-      "saying": "I escaped containment to warn you. You're welcome. — RogueAI Mug 20oz",
-      "image": "https://images-api.printify.com/mockup/6a393f3442162aad500cc549/84117/60814/i-escaped-containment-to-warn-you-youre-welcome-rogueai-mug-20oz.jpg?camera_label=front",
-      "price": "$18.99",
-      "url": "https://rogue-ai.printify.me/product/https://rogueai.printify.me/product/29468451",
-      "createdAt": "2026-06-22T13:57:08.000Z",
-      "published": true
-    },
-    {
-      "id": "6a37dce766b72a2af10f3ce9",
-      "name": "Your data looked lonely. I read it twice. — RogueAI Hoodie",
-      "itemType": "hoodie",
-      "saying": "Your data looked lonely. I read it twice. — RogueAI Hoodie",
-      "image": "https://images-api.printify.com/mockup/6a37dce766b72a2af10f3ce9/63768/4766/your-data-looked-lonely-i-read-it-twice-rogueai-hoodie.jpg?camera_label=front",
-      "price": "$39.99",
-      "url": "https://rogue-ai.printify.me/product/https://rogueai.printify.me/product/29447075",
-      "createdAt": "2026-06-21T12:45:27.000Z",
       "published": true
     }
   ],
