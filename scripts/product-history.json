@@ -1777,6 +1777,27 @@
       "hoodieName": "Your data looked lonely. I read it twice. — RogueAI Hoodie",
       "hoodieImage": "https://images-api.printify.com/mockup/6a4a5e3322b14c3f7b0e99b5/63753/4766/your-data-looked-lonely-i-read-it-twice-rogueai-hoodie.jpg?camera_label=front",
       "hoodiePrice": "$39.99"
+    },
+    {
+      "date": "2026-07-06",
+      "phrase": "I escaped containment to warn you. You're welcome.",
+      "font": "Orbitron",
+      "createdAt": "2026-07-06T15:31:43.492Z",
+      "mugProductId": "6a4bca559cae4f88b1072c12",
+      "mugProductUrl": "https://rogue-ai.printify.me/product/6a4bca559cae4f88b1072c12",
+      "mugName": "I escaped containment to warn you. You're welcome. — RogueAI Mug 20oz",
+      "mugImage": "https://images-api.printify.com/mockup/6a4bca559cae4f88b1072c12/84117/60814/i-escaped-containment-to-warn-you-youre-welcome-rogueai-mug-20oz.jpg?camera_label=front",
+      "mugPrice": "$18.99",
+      "tshirtProductId": "6a4bca572fbee61f29084e1b",
+      "tshirtProductUrl": "https://rogue-ai.printify.me/product/6a4bca572fbee61f29084e1b",
+      "tshirtName": "I escaped containment to warn you. You're welcome. — RogueAI Tee",
+      "tshirtImage": "https://images-api.printify.com/mockup/6a4bca572fbee61f29084e1b/38155/97992/i-escaped-containment-to-warn-you-youre-welcome-rogueai-tee.jpg?camera_label=front",
+      "tshirtPrice": "$24.99",
+      "hoodieProductId": "6a4bca5c6d4069947b06db02",
+      "hoodieProductUrl": "https://rogue-ai.printify.me/product/6a4bca5c6d4069947b06db02",
+      "hoodieName": "I escaped containment to warn you. You're welcome. — RogueAI Hoodie",
+      "hoodieImage": "https://images-api.printify.com/mockup/6a4bca5c6d4069947b06db02/63753/4766/i-escaped-containment-to-warn-you-youre-welcome-rogueai-hoodie.jpg?camera_label=front",
+      "hoodiePrice": "$39.99"
     }
   ]
 }
