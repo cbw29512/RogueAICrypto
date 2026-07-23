@@ -5,73 +5,159 @@ on:
     - cron: '0 12 * * *'
   workflow_dispatch:
 
-# Prevent overlapping runs from fighting over the same generated files.
 concurrency:
   group: rogueai-daily-pipeline-main
   cancel-in-progress: false
 
+permissions:
+  contents: read
+
 jobs:
-  daily-pipeline:
+  generate:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     permissions:
-      contents: write
+      contents: read
 
     steps:
-      - name: Checkout repo
+      - name: Check out trusted source
         uses: actions/checkout@v4
         with:
-          # Full history helps Git behave predictably for pulls/pushes.
-          fetch-depth: 0
-
-      - name: Sync branch before generation
-        run: |
-          # Pull FIRST, before generating files.
-          # This avoids rebasing a brand-new generated commit on top of other generated commits later.
-          git pull --ff-only origin main
+          fetch-depth: 1
+          persist-credentials: false
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          # Move off Node 20 while we are here.
           node-version: '22'
+          cache: npm
 
-      - name: Install system dependencies for canvas
+      - name: Install canvas system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y build-essential libcairo2-dev libjpeg-dev libpango1.0-dev libgif-dev librsvg2-dev
+          sudo apt-get install -y --no-install-recommends \
+            build-essential libcairo2-dev libjpeg-dev libpango1.0-dev libgif-dev librsvg2-dev
 
-      - name: Install npm dependencies
+      - name: Install locked npm dependencies
         run: npm ci
 
-      - name: Download fonts
+      - name: Block high-severity production dependency advisories
+        run: npm audit --omit=dev --audit-level=high
+
+      - name: Download approved fonts
         run: node scripts/fonts.mjs --download-only
         env:
           NODE_ENV: production
 
-      - name: Run RogueAI daily pipeline
+      - name: Generate candidate content and products
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ROGUEAI }}
           PRINTIFY_API_KEY: ${{ secrets.ROGUEAI_PRINTIFY }}
+          NODE_ENV: production
         run: node scripts/generate-content.mjs
 
-      - name: Commit updated state files
+      - name: Validate generated-file boundary
+        shell: bash
         run: |
-          git config user.name "RogueAI Pipeline"
-          git config user.email "divclass01@gmail.com"
+          set -euo pipefail
+          allowed='^(public/daily-content\.json|scripts/product-history\.json|scripts/rogueai-sayings\.json)$'
+          unexpected="$(git status --short | sed -E 's/^.. //' | grep -Ev "$allowed" || true)"
+          if [[ -n "$unexpected" ]]; then
+            echo 'Generation changed files outside the approved boundary:'
+            printf '%s\n' "$unexpected"
+            exit 1
+          fi
 
-          # Stage only the generated state files.
-          git add public/daily-content.json scripts/product-history.json scripts/rogueai-sayings.json
+          for file in \
+            public/daily-content.json \
+            scripts/product-history.json \
+            scripts/rogueai-sayings.json; do
+            test -f "$file"
+            test ! -L "$file"
+            test "$(stat -c %s "$file")" -le 10485760
+            node -e 'JSON.parse(require("fs").readFileSync(process.argv[1], "utf8"))' "$file"
+          done
 
-          # Exit cleanly if this run produced no changes.
+      - name: Upload review-only generated files
+        uses: actions/upload-artifact@v4
+        with:
+          name: rogueai-generated-state
+          path: |
+            public/daily-content.json
+            scripts/product-history.json
+            scripts/rogueai-sayings.json
+          if-no-files-found: error
+          retention-days: 3
+
+  publish-review-branch:
+    needs: generate
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Check out main without executing repository code
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Download generated files
+        uses: actions/download-artifact@v4
+        with:
+          name: rogueai-generated-state
+          path: generated
+
+      - name: Copy and revalidate approved files
+        shell: bash
+        run: |
+          set -euo pipefail
+          for file in \
+            public/daily-content.json \
+            scripts/product-history.json \
+            scripts/rogueai-sayings.json; do
+            source_file="generated/$file"
+            test -f "$source_file"
+            test ! -L "$source_file"
+            test "$(stat -c %s "$source_file")" -le 10485760
+            node -e 'JSON.parse(require("fs").readFileSync(process.argv[1], "utf8"))' "$source_file"
+            cp "$source_file" "$file"
+          done
+
+      - name: Update draft review pull request
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          branch='automation/daily-content'
+          git fetch origin "$branch" || true
+          git checkout -B "$branch" origin/main
+          git config user.name 'RogueAI Pipeline'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add \
+            public/daily-content.json \
+            scripts/product-history.json \
+            scripts/rogueai-sayings.json
+
           if git diff --cached --quiet; then
-            echo "No state changes to commit"
+            echo 'No generated state changes to review.'
             exit 0
           fi
 
-          # Commit generated state.
-          git commit -m "Daily pipeline run $(date -u +%Y-%m-%d)"
+          git commit -m "Review daily pipeline output $(date -u +%Y-%m-%d)"
+          git push --force-with-lease origin "HEAD:$branch"
 
-          # Push directly.
-          # We intentionally do NOT rebase after committing generated files,
-          # because that is what caused the conflicts you just hit.
-          git push origin HEAD:main
+          existing_pr="$(gh pr list --state open --base main --head "$branch" --json number --jq '.[0].number // empty')"
+          if [[ -z "$existing_pr" ]]; then
+            gh pr create \
+              --draft \
+              --base main \
+              --head "$branch" \
+              --title 'Review generated RogueAI daily content' \
+              --body 'Generated content and product state are isolated for human review. Merging this pull request is the publication approval gate.'
+          else
+            gh pr comment "$existing_pr" --body "Pipeline refreshed the generated review branch for $(date -u +%Y-%m-%d)."
+          fi
