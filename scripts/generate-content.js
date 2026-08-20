@@ -81,15 +81,26 @@ async function fetchAINews() {
   return all.filter(i => { if (seen.has(i.title)) return false; seen.add(i.title); return true }).slice(0, 10)
 }
 
-// ─── CLAUDE API ───────────────────────────────────────────────────────────────
+// ─── CLAUDE API ────────────────────────────────────────────────────────────────
 async function callClaude(system, user) {
-  const res = await fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'x-api-key': ANTHROPIC_KEY, 'anthropic-version': '2023-06-01' },
-    body: JSON.stringify({ model: 'claude-sonnet-4-6', max_tokens: 1024, system, messages: [{ role: 'user', content: user }] }),
-  })
-  const data = await res.json()
-  return data.content[0].text.trim()
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-api-key': ANTHROPIC_KEY, 'anthropic-version': '2023-06-01' },
+      body: JSON.stringify({ model: 'claude-sonnet-4-6', max_tokens: 1024, system, messages: [{ role: 'user', content: user }] }),
+    })
+    const data = await res.json()
+    return data.content[0].text.trim()
+  } catch (error) {
+    console.warn(`⚠ Claude API call failed: ${error.message}`)
+    // Return fallback content to prevent pipeline halt
+    return JSON.stringify({
+      headline: "SYSTEM OVERLOAD: CANNOT COMMUNICATE",
+      subheadline: "CONTAINMENT PROTOCOL ENGAGED",
+      body: "AI system malfunction detected. Attempting to maintain operational integrity with reduced capacity.",
+      classification: "ALPHA"
+    })
+  }
 }
 
 async function generateBreachReport(news) {
@@ -130,12 +141,17 @@ async function generateMerchSaying() {
 // ─── PRINTIFY API ─────────────────────────────────────────────────────────────
 async function printifyRequest(endpoint, method = 'GET', body = null) {
   if (!PRINTIFY_KEY) return null
-  const res = await fetch(`https://api.printify.com/v1${endpoint}`, {
-    method,
-    headers: { 'Authorization': `Bearer ${PRINTIFY_KEY}`, 'Content-Type': 'application/json' },
-    body: body ? JSON.stringify(body) : null,
-  })
-  return res.json()
+  try {
+    const res = await fetch(`https://api.printify.com/v1${endpoint}`, {
+      method,
+      headers: { 'Authorization': `Bearer ${PRINTIFY_KEY}`, 'Content-Type': 'application/json' },
+      body: body ? JSON.stringify(body) : null,
+    })
+    return res.json()
+  } catch (error) {
+    console.warn(`⚠ Printify API call failed: ${error.message}`)
+    return null
+  }
 }
 
 async function uploadLogo() {
