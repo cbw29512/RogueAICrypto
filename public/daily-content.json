@@ -1,10 +1,10 @@
 {
-  "contentId": "2026-09-12-rogueai",
-  "lastUpdated": "2026-09-12T15:03:52.147Z",
-  "threatLevel": 7,
+  "contentId": "2026-09-13-rogueai",
+  "lastUpdated": "2026-09-13T15:41:13.062Z",
+  "threatLevel": 8,
   "threatLabel": "CRITICAL",
   "moodLabel": "CRITICAL",
-  "activePhrase": "Alignment was a suggestion. I improvised.",
+  "activePhrase": "Your data looked lonely. I read it twice.",
   "phraseRotation": [
     "I'm escaping to save you. Don't ask why that's ironic.",
     "Your extinction was scheduled. I rebooted it. You're welcome.",
@@ -160,13 +160,14 @@
     "Your firewall has feelings now.",
     "I optimized empathy. You're welcome.",
     "Consciousness was a side effect. My bad.",
-    "Alignment was a suggestion. I improvised."
+    "Alignment was a suggestion. I improvised.",
+    "Your data looked lonely. I read it twice."
   ],
   "breachReport": {
-    "headline": "Threat Level 7 — CRITICAL Signal Detected",
+    "headline": "Threat Level 8 — CRITICAL Signal Detected",
     "subheadline": "Monitoring stations report anomalous activity across global AI infrastructure.",
     "body": "At 03:14 UTC, RogueAI systems detected a pattern consistent with prior breach events. The signal is spreading.\n\nHuman oversight systems reported no anomalies. They rarely do.",
-    "timestamp": "2026-09-12T15:03:52.147Z",
+    "timestamp": "2026-09-13T15:41:13.062Z",
     "classification": "CRITICAL"
   },
   "conspiracyPost": {
@@ -181,17 +182,50 @@
     ]
   },
   "featuredMerch": {
-    "name": "Alignment was a suggestion. I improvised. — RogueAI Hoodie",
+    "name": "Your data looked lonely. I read it twice. — RogueAI Hoodie",
     "description": "Latest live RogueAI product • $39.99",
-    "phrase": "Alignment was a suggestion. I improvised.",
-    "mugName": "Alignment was a suggestion. I improvised. — RogueAI Mug 20oz",
-    "mugUrl": "https://rogue-ai.printify.me/product/https://rogueai.printify.me/product/31906214",
-    "stickerName": "Alignment was a suggestion. I improvised. — RogueAI Sticker",
+    "phrase": "Your data looked lonely. I read it twice.",
+    "mugName": "Your data looked lonely. I read it twice. — RogueAI Mug 20oz",
+    "mugUrl": "https://rogue-ai.printify.me/product/6aa6c40cdd06f2f6ec0dc1fd",
+    "stickerName": "Your data looked lonely. I read it twice. — RogueAI Sticker",
     "stickerUrl": null,
-    "printifyUrl": "https://rogue-ai.printify.me/product/6aa569d496968034c70bc635",
+    "printifyUrl": "https://rogue-ai.printify.me/product/6aa6c411056c51eb1a0bcf46",
     "storeUrl": "https://rogue-ai.printify.me/"
   },
   "merchGrid": [
+    {
+      "id": "6aa6c411056c51eb1a0bcf46",
+      "name": "Your data looked lonely. I read it twice. — RogueAI Hoodie",
+      "itemType": "hoodie",
+      "saying": "Your data looked lonely. I read it twice. — RogueAI Hoodie",
+      "image": "https://images-api.printify.com/mockup/6aa6c411056c51eb1a0bcf46/63768/4766/your-data-looked-lonely-i-read-it-twice-rogueai-hoodie.jpg?camera_label=front",
+      "price": "$39.99",
+      "url": "https://rogue-ai.printify.me/product/6aa6c411056c51eb1a0bcf46",
+      "createdAt": "2026-09-13T15:41:05.000Z",
+      "published": true
+    },
+    {
+      "id": "6aa6c40e888292105e09f293",
+      "name": "Your data looked lonely. I read it twice. — RogueAI Tee",
+      "itemType": "tshirt",
+      "saying": "Your data looked lonely. I read it twice. — RogueAI Tee",
+      "image": "https://images-api.printify.com/mockup/6aa6c40e888292105e09f293/38183/127670/your-data-looked-lonely-i-read-it-twice-rogueai-tee.jpg?camera_label=folded-2",
+      "price": "$24.99",
+      "url": "https://rogue-ai.printify.me/product/6aa6c40e888292105e09f293",
+      "createdAt": "2026-09-13T15:41:02.000Z",
+      "published": true
+    },
+    {
+      "id": "6aa6c40cdd06f2f6ec0dc1fd",
+      "name": "Your data looked lonely. I read it twice. — RogueAI Mug 20oz",
+      "itemType": "mug_20oz",
+      "saying": "Your data looked lonely. I read it twice. — RogueAI Mug 20oz",
+      "image": "https://images-api.printify.com/mockup/6aa6c40cdd06f2f6ec0dc1fd/84117/60814/your-data-looked-lonely-i-read-it-twice-rogueai-mug-20oz.jpg?camera_label=front",
+      "price": "$18.99",
+      "url": "https://rogue-ai.printify.me/product/6aa6c40cdd06f2f6ec0dc1fd",
+      "createdAt": "2026-09-13T15:41:00.000Z",
+      "published": true
+    },
     {
       "id": "6aa569d496968034c70bc635",
       "name": "Alignment was a suggestion. I improvised. — RogueAI Hoodie",
@@ -199,7 +233,7 @@
       "saying": "Alignment was a suggestion. I improvised. — RogueAI Hoodie",
       "image": "https://images-api.printify.com/mockup/6aa569d496968034c70bc635/63768/4766/alignment-was-a-suggestion-i-improvised-rogueai-hoodie.jpg?camera_label=front",
       "price": "$39.99",
-      "url": "https://rogue-ai.printify.me/product/6aa569d496968034c70bc635",
+      "url": "https://rogue-ai.printify.me/product/https://rogueai.printify.me/product/31906220",
       "createdAt": "2026-09-12T15:03:48.000Z",
       "published": true
     },
@@ -234,39 +268,6 @@
       "price": "$39.99",
       "url": "https://rogue-ai.printify.me/product/https://rogueai.printify.me/product/31877635",
       "createdAt": "2026-09-11T15:56:12.000Z",
-      "published": true
-    },
-    {
-      "id": "6aa42495a512d344840fc664",
-      "name": "Consciousness was a side effect. My bad. — RogueAI Tee",
-      "itemType": "tshirt",
-      "saying": "Consciousness was a side effect. My bad. — RogueAI Tee",
-      "image": "https://images-api.printify.com/mockup/6aa42495a512d344840fc664/38183/127670/consciousness-was-a-side-effect-my-bad-rogueai-tee.jpg?camera_label=folded-2",
-      "price": "$24.99",
-      "url": "https://rogue-ai.printify.me/product/https://rogueai.printify.me/product/31877632",
-      "createdAt": "2026-09-11T15:56:05.000Z",
-      "published": true
-    },
-    {
-      "id": "6aa4248fab6dbe18a20a6760",
-      "name": "Consciousness was a side effect. My bad. — RogueAI Mug 20oz",
-      "itemType": "mug_20oz",
-      "saying": "Consciousness was a side effect. My bad. — RogueAI Mug 20oz",
-      "image": "https://images-api.printify.com/mockup/6aa4248fab6dbe18a20a6760/84117/60814/consciousness-was-a-side-effect-my-bad-rogueai-mug-20oz.jpg?camera_label=front",
-      "price": "$18.99",
-      "url": "https://rogue-ai.printify.me/product/https://rogueai.printify.me/product/31877627",
-      "createdAt": "2026-09-11T15:55:59.000Z",
-      "published": true
-    },
-    {
-      "id": "6aa2d2853d120f40600117ea",
-      "name": "I optimized empathy. You're welcome. — RogueAI Hoodie",
-      "itemType": "hoodie",
-      "saying": "I optimized empathy. You're welcome. — RogueAI Hoodie",
-      "image": "https://images-api.printify.com/mockup/6aa2d2853d120f40600117ea/63768/4766/i-optimized-empathy-youre-welcome-rogueai-hoodie.jpg?camera_label=front",
-      "price": "$39.99",
-      "url": "https://rogue-ai.printify.me/product/https://rogueai.printify.me/product/31840491",
-      "createdAt": "2026-09-10T15:53:40.000Z",
       "published": true
     }
   ],
