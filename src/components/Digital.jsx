@@ -31,15 +31,15 @@ export default function Digital() {
     },
     {
       name: 'TERMINAL PACK + WALLPAPERS',
-      price: 'SOON',
-      badge: 'COMING ONLINE',
-      badgeColor: 'var(--muted)',
-      description: 'Digital wallpapers and terminal aesthetics. Watch the Gumroad profile — listing drops when clearance clears.',
-      cta: 'VIEW GUMROAD PROFILE →',
-      url: TERMINAL_PACK_URL || GUMROAD_PROFILE_URL,
+      price: '$4.99',
+      badge: 'DIGITAL PACK',
+      badgeColor: 'var(--green)',
+      description: 'Phone + desktop terminal wallpapers and a printable AI containment certificate. Day 265 vibes. No NFTs — just green-on-black.',
+      cta: 'BUY TERMINAL PACK — $4.99',
+      url: TERMINAL_PACK_URL,
       highlight: false,
       emoji: '🖥',
-      soon: true,
+      soon: false,
     },
   ]
 
