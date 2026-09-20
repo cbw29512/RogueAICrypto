@@ -15,6 +15,7 @@ export default function Nav() {
     { label: 'BREACH', href: '#breach' },
     { label: 'TOKEN', href: '#token' },
     { label: 'INSURANCE', href: '#insurance' },
+    { label: 'DIGITAL', href: '#digital' },
     { label: 'MERCH', href: '#merch' },
     { label: 'CONSPIRACY', href: '#conspiracy' },
     { label: 'ROADMAP', href: '#roadmap' },

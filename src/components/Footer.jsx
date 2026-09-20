@@ -1,4 +1,7 @@
 import {
+  BOOK_ARCHIMEDES_URL,
+  BOOK_ZOMBIE_URL,
+  GUMROAD_PROFILE_URL,
   INSURANCE_SITE_URL,
   LOGO_PATH,
   MERCH_STORE_URL,
@@ -33,15 +36,20 @@ export default function Footer() {
           {/* Links */}
           {[
             { title: 'PRODUCTS', links: [
+              { label: 'Zombie Survival Guide', url: BOOK_ZOMBIE_URL },
+              { label: 'Chronicles of ARCHIMEDES9', url: BOOK_ARCHIMEDES_URL },
               { label: 'Premium Certificate', url: PREMIUM_CERT_URL },
               { label: 'Standard Certificate', url: STANDARD_CERT_URL },
               { label: 'RogueAI Token', url: TOKEN_URL },
               { label: 'Merch Store', url: MERCH_STORE_URL },
+              { label: 'Gumroad Digital', url: GUMROAD_PROFILE_URL },
             ]},
             { title: 'NAVIGATE', links: [
               { label: 'Breach Report', url: '#breach' },
               { label: 'Token', url: '#token' },
               { label: 'Insurance', url: '#insurance' },
+              { label: 'Digital', url: '#digital' },
+              { label: 'Merch', url: '#merch' },
               { label: 'Roadmap', url: '#roadmap' },
             ]},
             { title: 'SIGNAL', links: [

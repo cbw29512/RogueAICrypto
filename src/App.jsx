@@ -3,6 +3,7 @@ import Hero from './components/Hero'
 import BreachReport from './components/BreachReport'
 import Token from './components/Token'
 import Insurance from './components/Insurance'
+import Digital from './components/Digital'
 import Merch from './components/Merch'
 import Conspiracy from './components/Conspiracy'
 import EmailCapture from './components/EmailCapture'
@@ -20,6 +21,7 @@ export default function App() {
       <BreachReport content={content} />
       <Token />
       <Insurance />
+      <Digital />
       <Merch content={content} />
       <Conspiracy content={content} />
       <EmailCapture />
