@@ -8,7 +8,7 @@ A fully automated, self-updating dark AI brand website. Every night at midnight 
 - Real AI news is pulled from RSS feeds (free, no API key)
 - Claude API rewrites it as a "Breach Report" in the RogueAI voice
 - Claude generates a new conspiracy theory blog post
-- The site auto-deploys via Vercel in ~30 seconds
+- The site auto-deploys via Netlify on intentional pushes
 - Nobody touches anything
 
 ## Revenue Streams
@@ -28,16 +28,14 @@ npm run dev
 ### 2. GitHub Secret (already done)
 `ANTHROPIC_API_KEY` → set in repo Settings → Secrets → Actions
 
-### 3. Connect rogueaicrypto.com to Vercel
-- Go to vercel.com → your project → Settings → Domains
-- Add `rogueaicrypto.com`
-- Point your domain DNS to Vercel (they walk you through it)
+### 3. Hosting (Netlify — primary)
+- Live host: **Netlify** → https://www.rogueaicrypto.com
+- Build: `npm run build` → publish `dist` (see `netlify.toml`)
+- Domain DNS points at Netlify; push to `main` only when a deploy is worth the build minutes
+- `vercel.json` is legacy; do not treat Vercel as primary
 
-### 4. Enable Vercel auto-deploy on push
-- Already works by default — every GitHub commit triggers a redeploy
-
-### 5. Test the automation manually
-- Go to GitHub → Actions tab → "Daily RogueAI Content Update" → Run workflow
+### 5. Content pipeline
+- Daily Anthropic/Printify Actions pipeline is **disabled** (cost control). Ship site/merch changes as intentional batched commits only.
 
 ### 6. Update Printify URLs
 - In `src/components/Merch.jsx` replace `https://printify.com` with your actual Printify store URL
@@ -66,14 +64,15 @@ rogueai/
 │   └── index.css
 ├── index.html
 ├── package.json
-├── vercel.json
+├── netlify.toml              ← Netlify build (primary host)
+├── vercel.json               ← legacy; not primary
 └── vite.config.js
 ```
 
 ## Cost Estimate
 | Service | Cost |
 |---|---|
-| Vercel hosting | Free |
+| Netlify hosting | Free tier (watch build minutes) |
 | GitHub Actions | Free |
 | RSS news feeds | Free |
 | Claude API (daily) | ~$3-5/month |
