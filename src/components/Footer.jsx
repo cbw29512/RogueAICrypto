@@ -56,6 +56,7 @@ export default function Footer() {
               { label: 'rogueaiinsurance.com', url: INSURANCE_SITE_URL },
               { label: 'MintMe Token', url: TOKEN_URL },
               { label: 'YouTube Channel', url: 'https://www.youtube.com/@RogueAIOriginal' },
+              { label: 'Buy Me a Coffee', url: 'https://buymeacoffee.com/divclass016' },
             ]},
           ].map((col, i) => (
             <div key={i}>
