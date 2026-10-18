@@ -1,8 +1,8 @@
 export default function Conspiracy({ content }) {
   const post = content?.conspiracyPost
   const date = content?.lastUpdated ? new Date(content.lastUpdated).toLocaleDateString('en-US', {
-    year: 'numeric', month: 'long', day: 'numeric'
-  }) : 'TODAY'
+    year: 'numeric', month: 'long', day: 'numeric', timeZone: 'America/New_York'
+  }) : null
 
   return (
     <section id="conspiracy" style={{
@@ -15,7 +15,7 @@ export default function Conspiracy({ content }) {
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '48px' }}>
           <div style={{ width: '40px', height: '1px', background: 'var(--amber)' }} />
           <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '4px', color: 'var(--amber)' }}>
-            CONSPIRACY FEED // AI GENERATED DAILY
+            CONSPIRACY FEED
           </span>
           <div style={{ flex: 1, height: '1px', background: 'var(--border)' }} />
         </div>
@@ -83,8 +83,8 @@ export default function Conspiracy({ content }) {
               fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--muted)',
               letterSpacing: '2px', display: 'flex', alignItems: 'center', gap: '12px',
             }}>
-              <span style={{ color: 'var(--amber)', animation: 'pulse-red 2s infinite' }}>●</span>
-              THIS POST IS AI-GENERATED SATIRE FROM REAL AI NEWS. UPDATED DAILY AT 00:00 UTC. NOT FINANCIAL ADVICE.
+              <span style={{ color: 'var(--amber)' }}>●</span>
+              THIS POST IS SATIRE WRITTEN BY ARTIFICIAL INTELLIGENCE FROM REAL ARTIFICIAL INTELLIGENCE NEWS.{date ? ` LAST UPDATED ${date.toUpperCase()}.` : ''} NOT FINANCIAL ADVICE.
             </div>
           </div>
         )}

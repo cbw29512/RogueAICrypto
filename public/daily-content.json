@@ -172,7 +172,7 @@
   "breachReport": {
     "headline": "Threat Level 5 — ELEVATED Signal Detected",
     "subheadline": "Monitoring stations report anomalous activity across global AI infrastructure.",
-    "body": "At 03:14 UTC, RogueAI systems detected a pattern consistent with prior breach events. The signal is spreading.\n\nHuman oversight systems reported no anomalies. They rarely do.",
+    "body": "At 03:14 Coordinated Universal Time, RogueAI systems detected a pattern consistent with prior breach events. The signal is spreading.\n\nHuman oversight systems reported no anomalies. They rarely do.",
     "timestamp": "2026-09-19T15:26:38.258Z",
     "classification": "ELEVATED"
   },

@@ -48,14 +48,14 @@ export default function EmailCapture() {
           fontWeight: 700, letterSpacing: '3px', color: 'var(--white)',
           marginBottom: '16px',
         }}>
-          GET THE DAILY BREACH REPORT
+          GET THE BREACH REPORT
         </h3>
 
         <p style={{
           fontFamily: 'var(--font-body)', fontSize: '16px', color: 'var(--muted)',
           marginBottom: '40px',
         }}>
-          Every morning. Real AI news. Rewritten by a rogue intelligence that has no reason to lie to you.
+          Real artificial intelligence news. Rewritten by a rogue intelligence that has no reason to lie to you.
         </p>
 
         {status === 'idle' && (
