@@ -1,14 +1,8 @@
 [
-  {"id": 33065027, "name": "\"man\" Before Panic", "kind": "Shirt"},
-  {"id": 33065041, "name": "\"sudo\" Is Not a Plan", "kind": "Shirt"},
-  {"id": 33065047, "name": "\"ls\" Look First", "kind": "Shirt"},
-  {"id": 33065034, "name": "\"chmod\" Isn't a Mood", "kind": "Shirt"},
-  {"id": 33065062, "name": "Up Arrow Is My Memory", "kind": "Shirt"},
-  {"id": 33065028, "name": "\"man\" Before Panic", "kind": "Hoodie"},
-  {"id": 32823212, "name": "I Read the Manual", "kind": "Shirt"},
-  {"id": 32823214, "name": "Sudo Make Me Coffee", "kind": "Mug"},
-  {"id": 32823943, "name": "chmod +x Me", "kind": "Shirt"},
-  {"id": 32823937, "name": "It Was Permissions", "kind": "Mug"},
-  {"id": 32823934, "name": "I Read the Error Message", "kind": "Shirt"},
-  {"id": 32823930, "name": "Read the Error", "kind": "Mug"}
+  {"id": 33065041, "name": "\"sudo\" Is Not a Plan", "kind": "Shirt", "lessonTitle": "How to Run Commands as Admin in Linux (sudo)", "lessonUrl": "https://youtube.com/shorts/XYi-9NVorqE"},
+  {"id": 33065047, "name": "\"ls\" Look First", "kind": "Shirt", "lessonTitle": "Your First Day in the Linux Terminal (Beginner Tutorial)", "lessonUrl": "https://youtu.be/_x9XbS6gads"},
+  {"id": 33065034, "name": "\"chmod\" Isn't a Mood", "kind": "Shirt", "lessonTitle": "chmod 755 Explained — What Those Numbers Mean", "lessonUrl": "https://youtube.com/shorts/pp2BPXrpwV8"},
+  {"id": 32823214, "name": "Sudo Make Me Coffee", "kind": "Mug", "lessonTitle": "How to Run Commands as Admin in Linux (sudo)", "lessonUrl": "https://youtube.com/shorts/XYi-9NVorqE"},
+  {"id": 32823943, "name": "chmod +x Me", "kind": "Shirt", "meaning": "chmod +x means make executable: the file can run as a program.", "lessonTitle": "chmod 755 Explained — What Those Numbers Mean", "lessonUrl": "https://youtube.com/shorts/pp2BPXrpwV8"},
+  {"id": 32823937, "name": "It Was Permissions", "kind": "Mug", "lessonTitle": "chmod 755 Explained — What Those Numbers Mean", "lessonUrl": "https://youtube.com/shorts/pp2BPXrpwV8"}
 ]
