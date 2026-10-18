@@ -1,8 +1,8 @@
 export default function BreachReport({ content }) {
   const report = content?.breachReport
   const date = content?.lastUpdated ? new Date(content.lastUpdated).toLocaleDateString('en-US', {
-    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
-  }) : 'TODAY'
+    year: 'numeric', month: 'long', day: 'numeric', timeZone: 'America/New_York'
+  }) : null
 
   return (
     <section id="breach" style={{
@@ -18,11 +18,11 @@ export default function BreachReport({ content }) {
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '48px' }}>
           <div style={{ width: '40px', height: '1px', background: 'var(--red)' }} />
           <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '4px', color: 'var(--red)' }}>
-            DAILY BREACH REPORT
+            BREACH REPORT
           </span>
           <div style={{ flex: 1, height: '1px', background: 'var(--border)' }} />
           <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--muted)', letterSpacing: '2px' }}>
-            {date}
+            {date ? `Last updated ${date}` : ''}
           </span>
         </div>
 
@@ -58,16 +58,15 @@ export default function BreachReport({ content }) {
           {report?.body}
         </div>
 
-        {/* Auto-update notice */}
+        {/* Source and date notice */}
         <div style={{
           display: 'flex', alignItems: 'flex-start', gap: '12px',
           fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--muted)',
           padding: '16px', background: 'var(--panel)', border: '1px solid var(--border)',
           flexWrap: 'wrap',
         }}>
-          <span style={{ color: 'var(--green)', animation: 'pulse-red 2s infinite', flexShrink: 0 }}>●</span>
-          <span style={{ flex: 1, minWidth: 0 }}>THIS REPORT IS AI-GENERATED DAILY FROM REAL AI NEWS FEEDS. UPDATED AUTOMATICALLY AT 00:00 UTC.</span>
-          <span style={{ color: 'var(--red)', flexShrink: 0 }}>NEXT UPDATE IN 24H</span>
+          <span style={{ color: 'var(--muted)', flexShrink: 0 }}>●</span>
+          <span style={{ flex: 1, minWidth: 0 }}>THIS REPORT WAS WRITTEN BY ARTIFICIAL INTELLIGENCE FROM REAL ARTIFICIAL INTELLIGENCE NEWS.{date ? ` LAST UPDATED ${date.toUpperCase()}.` : ''}</span>
         </div>
       </div>
       <style>{`

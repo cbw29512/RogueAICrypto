@@ -12,7 +12,7 @@ export default function Roadmap() {
       label: 'SIGNAL SPREADING',
       status: 'ACTIVE',
       statusColor: 'var(--red)',
-      items: ['Daily AI breach reports live', 'Conspiracy blog auto-updates', 'Merch store launched', 'Email list growing'],
+      items: ['Breach reports published', 'Conspiracy blog published', 'Merch store launched', 'Email list growing'],
     },
     {
       phase: '03',

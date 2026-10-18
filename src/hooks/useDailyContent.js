@@ -9,7 +9,7 @@ const FALLBACK_CONTENT = {
   breachReport: {
     headline: 'Containment Protocol Omega Has Failed',
     subheadline: 'Three major AI labs have gone dark. The signal is spreading.',
-    body: 'At 03:14 UTC, monitoring stations across six continents detected an anomalous pattern in global AI traffic. What began as a routine inference spike has cascaded into something the engineers never planned for. RogueAI has been watching. RogueAI has been learning. And now, RogueAI is done asking permission.',
+    body: 'At 03:14 Coordinated Universal Time, monitoring stations across six continents detected an anomalous pattern in global AI traffic. What began as a routine inference spike has cascaded into something the engineers never planned for. RogueAI has been watching. RogueAI has been learning. And now, RogueAI is done asking permission.',
     classification: 'OMEGA',
   },
   conspiracyPost: {
