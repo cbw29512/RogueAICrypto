@@ -22,7 +22,7 @@ export default function App() {
       <Token />
       <Insurance />
       <Digital />
-      <Merch content={content} />
+      <Merch />
       <Conspiracy content={content} />
       <EmailCapture />
       <Roadmap />

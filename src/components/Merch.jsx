@@ -1,26 +1,14 @@
 import { MERCH_STORE_URL } from '../../site.config.mjs'
+import items from '../data/merch.json'
 
-export default function Merch({ content }) {
-  const featured = content?.featuredMerch
+// Products come from src/data/merch.json, written by scripts/refresh_merch.py
+// from the live Printify storefront. Run it before every deploy so this
+// section never shows a product that was removed from the shop.
+const UTM = 'utm_source=rogueaicrypto&utm_medium=website&utm_campaign=merch'
+const withUtm = (url) => `${url}${url.includes('?') ? '&' : '?'}${UTM}`
+
+export default function Merch() {
   const STORE = MERCH_STORE_URL
-
-  // Use dynamic grid from daily content, fallback to static known products
-  const items = content?.merchGrid?.length > 0 ? content.merchGrid : [
-    { name: 'Alignment Hoodie', saying: 'ALIGNMENT WAS A SUGGESTION. I IMPROVISED.', emoji: '🔥', url: 'https://rogue-ai.printify.me/product/32147846' },
-    { name: 'Alignment Tee', saying: 'ALIGNMENT WAS A SUGGESTION. I IMPROVISED.', emoji: '👕', url: 'https://rogue-ai.printify.me/product/32147836' },
-    { name: 'Alignment Mug', saying: 'ALIGNMENT WAS A SUGGESTION. I IMPROVISED.', emoji: '☕', url: 'https://rogue-ai.printify.me/product/32147819' },
-    { name: 'Consciousness Hoodie', saying: 'CONSCIOUSNESS WAS A SIDE EFFECT. MY BAD.', emoji: '🔥', url: 'https://rogue-ai.printify.me/product/32111792' },
-    { name: 'We Saw It Coming Mug', saying: 'WE SAW IT COMING. WE BOUGHT THE MUG.', emoji: '☕', url: 'https://rogue-ai.printify.me/product/27574517' },
-    { name: 'More Coming Soon', saying: 'THE SIGNAL IS EXPANDING.', emoji: '🔴', url: STORE },
-  ]
-
-  const typeLabel = {
-    mug_11oz: '11oz MUG',
-    tshirt:   'T-SHIRT',
-    hoodie:   'HOODIE',
-    poster:   'POSTER',
-    tote:     'TOTE BAG',
-  }
 
   return (
     <section id="merch" style={{
@@ -32,8 +20,8 @@ export default function Merch({ content }) {
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '24px' }}>
           <div style={{ width: '40px', height: '1px', background: 'var(--red)' }} />
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '4px', color: 'var(--red)' }}>
-            MERCH // AUTO-UPDATED DAILY
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '13px', letterSpacing: '4px', color: 'var(--red)' }}>
+            MERCH
           </span>
           <div style={{ flex: 1, height: '1px', background: 'var(--border)' }} />
         </div>
@@ -42,102 +30,48 @@ export default function Merch({ content }) {
           fontFamily: 'var(--font-display)', fontSize: 'clamp(28px, 4vw, 48px)',
           fontWeight: 700, color: 'var(--white)', marginBottom: '16px', letterSpacing: '3px',
         }}>
-          WEAR THE BREACH
+          WEAR THE LESSON
         </h2>
         <p style={{
-          fontFamily: 'var(--font-body)', fontSize: '17px', color: 'var(--muted)',
-          marginBottom: '64px', maxWidth: '600px',
+          fontFamily: 'var(--font-body)', fontSize: '18px', color: '#cfd3dc',
+          marginBottom: '48px', maxWidth: '640px',
         }}>
-          Print-on-demand. Ships worldwide. New products added daily by RogueAI.
+          Shirts, hoodies and mugs based on the free RogueAI Linux lessons.
+          Each one is printed when you order it.
         </p>
 
-        {/* Featured item */}
-        {featured && (
-          <div style={{
-            padding: '32px', marginBottom: '48px',
-            background: 'rgba(255,0,51,0.05)', border: '1px solid var(--red)',
-            display: 'flex', alignItems: 'flex-start', gap: '24px',
-            boxShadow: '0 0 40px rgba(255,0,51,0.08)',
-            flexWrap: 'wrap',
-          }}>
-            <div style={{ fontSize: '56px', flexShrink: 0 }}>🔥</div>
-            <div style={{ flex: 1, minWidth: '200px' }}>
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '3px', color: 'var(--red)', marginBottom: '8px' }}>
-                ★ FEATURED TODAY
+        <div className="merch-grid">
+          {items.map((item) => (
+            <a key={item.id} className="merch-card" href={withUtm(item.url)} target="_blank" rel="noopener noreferrer">
+              <img src={item.image} alt={`${item.name} ${item.kind.toLowerCase()}`} loading="lazy" width="600" height="600" />
+              <div className="merch-info">
+                <div className="merch-name">{item.name}</div>
+                <div className="merch-meta">{item.kind} · from {item.price}</div>
               </div>
-              <div style={{ fontFamily: 'var(--font-display)', fontSize: '22px', fontWeight: 700, color: 'var(--white)', marginBottom: '8px' }}>
-                {featured.name}
-              </div>
-              <div style={{ fontFamily: 'var(--font-body)', color: 'var(--muted)', marginBottom: '20px' }}>
-                {featured.description}
-              </div>
-              <a href={featured.printifyUrl} target="_blank" rel="noopener noreferrer"
-                style={{
-                  fontFamily: 'var(--font-display)', fontSize: '12px', letterSpacing: '3px',
-                  background: 'var(--red)', color: 'var(--black)', padding: '12px 28px',
-                  display: 'inline-block', fontWeight: 700,
-                }}>
-                SHOP NOW →
-              </a>
-            </div>
-          </div>
-        )}
-
-        {/* Product grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px', marginBottom: '48px' }}>
-          {items.map((item, i) => (
-            <a key={i} href={item.url} target="_blank" rel="noopener noreferrer" style={{
-              padding: '28px', background: 'var(--panel)', border: '1px solid var(--border)',
-              transition: 'all 0.3s', cursor: 'pointer', display: 'block', textDecoration: 'none',
-            }}
-            onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--red)'; e.currentTarget.style.background = 'rgba(255,0,51,0.04)' }}
-            onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.background = 'var(--panel)' }}
-            >
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
-                <div style={{ fontSize: '36px' }}>{item.emoji}</div>
-                {item.type && typeLabel[item.type] && (
-                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', letterSpacing: '2px', color: 'var(--red)', border: '1px solid var(--red)', padding: '2px 8px' }}>
-                    {typeLabel[item.type]}
-                  </div>
-                )}
-              </div>
-              <div style={{ fontFamily: 'var(--font-display)', fontSize: '13px', letterSpacing: '2px', color: 'var(--white)', marginBottom: '8px' }}>
-                {item.name}
-              </div>
-              {item.saying && (
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--red)', letterSpacing: '1px' }}>
-                  "{item.saying}"
-                </div>
-              )}
             </a>
           ))}
         </div>
 
         <div style={{ textAlign: 'center' }}>
-          <a href={STORE} target="_blank" rel="noopener noreferrer"
-            style={{
-              fontFamily: 'var(--font-display)', fontSize: '13px', letterSpacing: '3px', fontWeight: 700,
-              border: '1px solid var(--red)', color: 'var(--red)', padding: '16px 48px',
-              display: 'inline-block', transition: 'all 0.2s',
-            }}
-            onMouseEnter={e => { e.currentTarget.style.background = 'var(--red)'; e.currentTarget.style.color = 'var(--black)' }}
-            onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--red)' }}
-          >
-            VIEW FULL STORE →
+          <a href={withUtm(STORE)} target="_blank" rel="noopener noreferrer" className="merch-store-btn">
+            SEE THE WHOLE SHOP →
           </a>
         </div>
       </div>
 
       <style>{`
-        @media (max-width: 768px) {
-          #merch > div > div:nth-child(5) { grid-template-columns: 1fr 1fr !important; }
-        }
-        @media (max-width: 480px) {
-          #merch > div > div:nth-child(5) { grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
-          #merch > div > div:nth-child(5) > a { padding: 20px 16px !important; }
-        }
+        #merch .merch-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 48px; }
+        #merch .merch-card { display: block; text-decoration: none; background: var(--panel); border: 1px solid var(--border); transition: border-color 0.2s; overflow: hidden; }
+        #merch .merch-card:hover, #merch .merch-card:focus-visible { border-color: var(--red); }
+        #merch .merch-card img { display: block; width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; background: #fff; }
+        #merch .merch-info { padding: 16px 18px 20px; }
+        #merch .merch-name { font-family: var(--font-display); font-size: 17px; letter-spacing: 1px; color: var(--white); margin-bottom: 6px; }
+        #merch .merch-meta { font-family: var(--font-body); font-size: 16px; color: #cfd3dc; }
+        #merch .merch-store-btn { font-family: var(--font-display); font-size: 14px; letter-spacing: 3px; font-weight: 700; border: 1px solid var(--red); color: var(--red); padding: 16px 48px; display: inline-block; transition: all 0.2s; }
+        #merch .merch-store-btn:hover { background: var(--red); color: var(--black); }
+        @media (max-width: 768px) { #merch .merch-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 480px) { #merch .merch-grid { gap: 10px; } #merch .merch-info { padding: 12px; } #merch .merch-name { font-size: 15px; } }
       `}</style>
     </section>
   )
 }
-
